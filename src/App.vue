@@ -10,7 +10,6 @@ import {ref} from "vue";
 import BackgroundThreeJS from "./components/BackgroundThreeJS.vue";
 import AppMain from "./components/AppMain.vue";
 
-const pauseBackgroundAnimation = ref(true);
 const parent = ref<HTMLDivElement | null>(null);
 
 </script>

@@ -10,7 +10,6 @@ const pages = [
   { title: "Me Contacter", path: "/contact"},
 ];
 
-let lockScrollNavigation = false;
 
 const mainContainer = ref<HTMLDivElement | null>(null);
 
@@ -30,7 +29,6 @@ onMounted(() => {
     }
   }
 
-  const main = document.querySelector("main");
 })
 </script>
 
