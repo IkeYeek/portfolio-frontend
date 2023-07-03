@@ -10,7 +10,7 @@ import {
   SphereGeometry,
   WebGLRenderer
 } from "three";
-import {onMounted} from "vue";
+import {onMounted, watch} from "vue";
 let threejs: HTMLDivElement;
 
 let scene: Scene;
@@ -22,6 +22,8 @@ let pause = false;
 let mouseX: number;
 let mouseY: number;
 type Particle =  Mesh<SphereGeometry, MeshBasicMaterial> & { velocity: THREE.Vector3; };
+
+
 
 const initThreeJs = () => {
   const width = window.innerWidth;
@@ -42,9 +44,9 @@ const initThreeJs = () => {
   light.position.set(0, 0, 0);
   scene.add(light);
 
-  const colors = ["#5D2E8C", "#E0B1CB", "#BE95C4"];
+  const colors = ["#5D2E8C", "#BE95C4", "#2D1B3F"];
   particles = [];
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 200; i++) {
     const geometry = new THREE.SphereGeometry(0.1, 32, 32);
     const material = new THREE.MeshBasicMaterial({ color: colors[i % colors.length] });
     const particle = new THREE.Mesh(geometry, material) as Particle;
@@ -54,9 +56,9 @@ const initThreeJs = () => {
     particle.position.z = (Math.random() - 0.5) * 10;
 
     particle.velocity = new THREE.Vector3(
-        (Math.random() - 0.5) * 0.1,
-        (Math.random() - 0.5) * 0.1,
-        (Math.random() - 0.5) * 0.1
+        (Math.random() - 0.5) * 0.01,
+        (Math.random() - 0.5) * 0.01,
+        (Math.random() - 0.5) * 0.01
     );
 
     scene.add(particle as Object3D);

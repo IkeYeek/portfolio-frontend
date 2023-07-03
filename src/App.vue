@@ -1,16 +1,18 @@
 <template>
-  <div id="parent">
-    <div id="threejs"><BackgroundThreeJS :pause="pauseBackgroundAnimation"/></div>
-    <div id="content"><Integration /></div>
+  <div id="parent" ref="parent">
+    <div id="threejs"><BackgroundThreeJS /></div>
+    <div id="content"><AppMain /></div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import {ref} from "vue";
 import BackgroundThreeJS from "./components/BackgroundThreeJS.vue";
-import Integration from "./components/AppMain.vue";
+import AppMain from "./components/AppMain.vue";
 
 const pauseBackgroundAnimation = ref(true);
+const parent = ref<HTMLDivElement | null>(null);
+
 </script>
 <style>
 body {
@@ -36,7 +38,7 @@ body {
   left: 0;
   height: 100vh;
   width: 100vw;
-  backdrop-filter: blur(25px);
+  backdrop-filter: blur(1.5rem);
 }
 </style>
 

@@ -10,6 +10,8 @@ const pages = [
   { title: "Me Contacter", path: "/contact"},
 ];
 
+let lockScrollNavigation = false;
+
 const mainContainer = ref<HTMLDivElement | null>(null);
 
 const activePageIndex = ref(0);
@@ -27,6 +29,8 @@ onMounted(() => {
         activePageIndex.value = i;
     }
   }
+
+  const main = document.querySelector("main");
 })
 </script>
 
@@ -55,15 +59,15 @@ onMounted(() => {
         </ul>
       </nav>
       <ul id="social-links">
-        <li><img src="../assets/img/gitlab.png" alt="Logo Gitlab" /></li>
-        <li><img src="../assets/img/github.png" alt="Logo Github" /></li>
+        <li><a href="https://gitlab.com/IkeYeek" target="_blank"><img src="../assets/img/gitlab.png" alt="Logo Gitlab" /></a></li>
+        <li><a href="https://github.com/IkeYeek" target="_blank"><img src="../assets/img/github.png" alt="Logo Github" /></a></li>
         <li><img src="../assets/img/twitter.png" alt="Logo Twitter" /></li>
-        <li><img src="../assets/img/linkedin.png" alt="Logo Linkedin" /></li>
+        <li><a href="https://linkedin.com/in/lucas-marques-fr" target="_blank"><img src="../assets/img/linkedin.png" alt="Logo Linkedin" /></a></li>
       </ul>
       <footer>
         <div id="copyleft">Copyleft <span>©</span> Lucas &lt;Ike&gt; Marquès, 2023.</div>
         <div>Fait avec Amour, Figma et VueJS 3 </div>
-        <div><a href="#">Code source du site</a></div>
+        <div><a href="https://github.com/IkeYeek/portfolio-frontend" target="_blank" class="external-link">Code source du site</a></div>
       </footer>
     </header>
     <div id="separator"></div>
@@ -196,9 +200,11 @@ main {
   width: 100%;
   min-height: 100%;
   padding: 10px;
-  font-family: RobotoSlab;
+  font-family: Neuton-Light;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
   font-size: 20px;
-  color: #BE95C4;
+  color: #ebb5f3;
   overflow: auto;
   max-height: 88vh;
   z-index: 1;
