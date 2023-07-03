@@ -10,7 +10,7 @@ import {
   SphereGeometry,
   WebGLRenderer
 } from "three";
-import {onMounted, watch} from "vue";
+import {onMounted} from "vue";
 let threejs: HTMLDivElement;
 
 let scene: Scene;
