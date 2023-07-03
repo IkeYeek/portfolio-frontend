@@ -1,0 +1,16 @@
+.external-link {
+    color: #88CCF1;
+    border-bottom: solid 1px #88CCF1;
+    text-decoration: none;
+}
+
+.external-link:visited {
+    color: #3587A4;
+    border: solid 1px #3587A4;
+}
+
+.internal-link {
+    color: #D6F188;
+    border-bottom: dashed 1px #D6F188;
+    text-decoration: none;
+}
