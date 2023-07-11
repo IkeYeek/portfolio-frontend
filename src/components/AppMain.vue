@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {onMounted, ref, watch} from "vue";
 import {router} from "../main.ts";
+import WorkingOnIt from "./WorkingOnIt.vue";
 const pages = [
   { title: "Moi", path: "/"},
   { title: "Mon Parcours", path: "/academics"},
@@ -70,8 +71,9 @@ onMounted(() => {
     </header>
     <div id="separator"></div>
     <main ref="mainContainer">
-      <div>
-        <router-view />
+      <div id="mainContainer">
+        <WorkingOnIt />
+        <!--<router-view />-->
       </div>
     </main>
   </div>
@@ -81,15 +83,15 @@ onMounted(() => {
 /* preface */
 @font-face {
   font-family: "Gafata";
-  src: local("Gafata"), url("src/assets/font/Gafata-Regular.ttf");
+  src: local("Gafata"), url("../assets/font/Gafata-Regular.ttf");
 }
 @font-face {
   font-family: "Neuton-Light";
-  src: local("Neuton-Light"), url("src/assets/font/Neuton-Light.ttf");
+  src: local("Neuton-Light"), url("../assets/font/Neuton-Light.ttf");
 }
 @font-face {
   font-family: "RobotoSlab";
-  src: local("RobotoSlab"), url("src/assets/font/RobotoSlab.ttf");
+  src: local("RobotoSlab"), url("../assets/font/RobotoSlab.ttf");
 }
 /* panes */
 #panes {
@@ -114,7 +116,7 @@ header {
   text-align: center;
 }
 h1 {
-  font-family: "Gafata";
+  font-family: "Gafata", Helvetica, sans-serif;
   font-size: 52px;
   color: #E0B1CB;
   margin-bottom: 0;
@@ -122,7 +124,7 @@ h1 {
 h2 {
   margin-top: 5px;
   margin-bottom: 0;
-  font-family: Neuton-Light;
+  font-family: Neuton-Light, Helvetica, sans-serif;
   font-size: 32px;
   color: #BE95C4;
 }
@@ -131,7 +133,7 @@ h2 {
 }
 #presentation ul li {
   display: inline;
-  font-family: Neuton-Light;
+  font-family: Neuton-Light, Helvetica, sans-serif;
   font-size: 32px;
   color: #BE95C4;
   margin-right: 24px;
@@ -191,6 +193,11 @@ footer {
   margin-right: 30px;
   min-width: 3px;
   background-color: #5D2E8C;
+}
+
+#mainContainer {
+  width: 100%;
+  height: 100%;
 }
 
 /* main content */
