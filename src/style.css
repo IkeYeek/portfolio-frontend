@@ -1,3 +1,17 @@
+/* preface */
+@font-face {
+    font-family: "Gafata";
+    src: local("Gafata"), url("./assets/font/Gafata-Regular.ttf");
+}
+@font-face {
+    font-family: "Neuton-Light";
+    src: local("Neuton-Light"), url("./assets/font/Neuton-Light.ttf");
+}
+@font-face {
+    font-family: "RobotoSlab";
+    src: local("RobotoSlab"), url("./assets/font/RobotoSlab.ttf");
+}
+
 .external-link {
     color: #88CCF1;
     border-bottom: solid 1px #88CCF1;
@@ -13,4 +27,10 @@
     color: #D6F188;
     border-bottom: dashed 1px #D6F188;
     text-decoration: none;
+}
+
+@media (max-width: 1450px) {
+    .desktop-only {
+        display: none;
+    }
 }
