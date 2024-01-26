@@ -47,7 +47,7 @@ onMounted(() => {
         <li>XR</li>
         <li>Software</li>
       </ul>
-      <i v-bind:class="{rotate: btnStatus}" id="menuBtn" @click="btnStatus = !btnStatus"><i><vue-feather :type="btnStatus ? xIcon: menuIcon" /> </i></i>
+      <i v-bind:class="{rotate: btnStatus}" id="menuBtn" @click="btnStatus = !btnStatus"><vue-feather :type="btnStatus ? xIcon: menuIcon" /></i>
     </div>
     <nav>
       <ul v-if="btnStatus">
@@ -94,6 +94,8 @@ onMounted(() => {
 
 }
 #menuBtn {
+  width: 36px;
+  height: 36px;
   cursor: pointer;
   position: relative;
   color: #BE95C4;

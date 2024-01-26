@@ -1,34 +1,35 @@
 import { createApp } from 'vue'
+import { Quasar } from 'quasar'
+import '@quasar/extras/roboto-font-latin-ext/roboto-font-latin-ext.css'
+import 'quasar/src/css/index.sass'
 import './style.css'
 import App from './App.vue'
 import {createRouter, createWebHashHistory} from "vue-router";
-import LoremIpsum from "./components/LoremIpsum.vue";
-import AboutMe from "./components/AboutMe.vue";
-
+import WorkingOnIt from "./components/WorkingOnIt.vue";
 const routes = [
     {
         path: '/',
-        component: AboutMe,
+        component: WorkingOnIt,
     },
     {
         path: '/academics',
-        component: LoremIpsum,
+        component: WorkingOnIt,
     },
     {
         path: '/skills',
-        component: LoremIpsum,
+        component: WorkingOnIt,
     },
     {
         path: '/experiences',
-        component: LoremIpsum,
+        component: WorkingOnIt,
     },
     {
         path: '/goals',
-        component: LoremIpsum,
+        component: WorkingOnIt,
     },
     {
         path: '/contact',
-        component: LoremIpsum,
+        component: WorkingOnIt,
     }
 ];
 
@@ -40,5 +41,20 @@ export const router = createRouter({
 
 const app = createApp(App);
 app.use(router);
+app.use(Quasar, {
+    plugins: {}, // import Quasar plugins and add here
+    /*
+    config: {
+      brand: {
+        // primary: '#e46262',
+        // ... or all other brand colors
+      },
+      notify: {...}, // default set of options for Notify Quasar plugin
+      loading: {...}, // default set of options for Loading Quasar plugin
+      loadingBar: { ... }, // settings for LoadingBar Quasar plugin
+      // ..and many more (check Installation card on each Quasar component/directive/plugin)
+    }
+    */
+})
 
 app.mount('#app')

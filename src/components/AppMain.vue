@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import WorkingOnIt from "./WorkingOnIt.vue";
 import DesktopHeader from "./DesktopHeader.vue";
 import MobileHeader from "./MobileHeader.vue";
 
@@ -19,18 +18,17 @@ const mainContainer = ref<HTMLDivElement | null>(null);
 
 <template>
   <div id="panes">
-    <DesktopHeader  class="desktop-only" :pages="pages"/>
-    <div id="separator-hr" class="desktop-only"></div>
-    <MobileHeader class="mobile-only" :pages="pages"/>
-    <div id="separator-vr" class="mobile-only"></div>
+    <DesktopHeader class="desktop-only-perso" :pages="pages"/>
+    <div id="separator-hr" class="desktop-only-perso"></div>
+    <MobileHeader class="mobile-only-perso" :pages="pages"/>
+    <div id="separator-vr" class="mobile-only-perso"></div>
     <main ref="mainContainer">
       <div id="mainContainer">
-        <WorkingOnIt />
-        <!--<router-view />-->
+        <router-view />
       </div>
     </main>
   </div>
-  <footer class="mobile-only">
+  <footer class="mobile-only-perso">
     <div id="copyleft">Copyleft <span>©</span> Lucas &lt;Ike&gt; Marquès, 2023.</div>
     <div>Fait avec Amour, Figma et VueJS 3 </div>
     <div><a href="https://github.com/IkeYeek/portfolio-frontend" target="_blank" class="external-link">Code source du site</a></div>

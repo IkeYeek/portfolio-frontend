@@ -111,4 +111,6 @@ onMounted(() => {
   animate();
 });
 </script>
-<style></style>
+<style>
+
+</style>
