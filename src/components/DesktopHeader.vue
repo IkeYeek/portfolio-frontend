@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {onMounted, ref, watch} from "vue";
 import {router} from "../main.ts";
+import {routerHack} from "../helpers.ts";
 type Props = {
   pages: {
     title: string,
@@ -18,15 +19,7 @@ watch(() => activePageIndex.value, (newPage) => {
 })
 
 onMounted(() => {
-  // Quircky hack because the router acts weird
-  const hash = document.URL.split("#");
-  if (hash.length === 2) {
-    for (let i = 0; i < pages.length; i += 1) {
-      if (hash[1] === pages[i].path)
-        activePageIndex.value = i;
-    }
-  }
-
+  activePageIndex.value = routerHack() || 0;
 })
 </script>
 

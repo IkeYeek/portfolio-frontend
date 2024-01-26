@@ -2,6 +2,7 @@
 import {onMounted, ref, watch} from "vue";
 import {router} from "../main.ts";
 import { icons } from "feather-icons";
+import {routerHack} from "../helpers.ts";
 
 type Props = {
   pages: {
@@ -24,13 +25,7 @@ watch(() => activePageIndex.value, (newPage) => {
 
 onMounted(() => {
   // Quircky hack because the router acts weird
-  const hash = document.URL.split("#");
-  if (hash.length === 2) {
-    for (let i = 0; i < pages.length; i += 1) {
-      if (hash[1] === pages[i].path)
-        activePageIndex.value = i;
-    }
-  }
+  activePageIndex.value = routerHack() || 0;
 
 })
 </script>
@@ -82,8 +77,9 @@ onMounted(() => {
   margin-top: 5px;
   padding: 0;
   display: flex;
-  justify-content: space-around;
-  width: 50vw;
+  justify-content: space-evenly;
+  min-width: 50vw;
+  width: 100%;
 }
 #presentation ul li {
   display: inline;

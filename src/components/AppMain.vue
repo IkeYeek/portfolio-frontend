@@ -118,12 +118,14 @@ main > div {
   border-radius: 10px;
 }
 footer {
-  text-align: center;
+  position: absolute;
+  transform: translateX(50%);
+  right: 50%;
 }
 footer div {
-  font-family: RobotoSlab;
+  font-family: RobotoSlab, serif;
   font-size: 14px;
   color: #E0B1CB;
-  text-align: left;
+
 }
 </style>
