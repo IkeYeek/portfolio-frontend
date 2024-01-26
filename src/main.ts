@@ -11,10 +11,11 @@ import App from './App.vue'
 import {createRouter, createWebHashHistory} from "vue-router";
 import Contact from "./components/pages/Contact.vue";
 import WorkingOnIt from "./components/WorkingOnIt.vue";
+import AboutMe from "./components/AboutMe.vue";
 const routes = [
     {
         path: '/',
-        component: WorkingOnIt,
+        component: AboutMe,
     },
     {
         path: '/academics',
