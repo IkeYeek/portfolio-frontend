@@ -19,7 +19,7 @@ watch(() => activePageIndex.value, (newPage) => {
 })
 
 onMounted(() => {
-  activePageIndex.value = routerHack() || 0;
+  activePageIndex.value = routerHack(pages) || 0;
 })
 </script>
 

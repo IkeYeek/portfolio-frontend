@@ -6,8 +6,8 @@ import {routerHack} from "../helpers.ts";
 
 type Props = {
   pages: {
-    title: String,
-    path: String,
+    title: string,
+    path: string,
   }[]
 }
 
@@ -25,7 +25,7 @@ watch(() => activePageIndex.value, (newPage) => {
 
 onMounted(() => {
   // Quircky hack because the router acts weird
-  activePageIndex.value = routerHack() || 0;
+  activePageIndex.value = routerHack(pages) || 0;
 
 })
 </script>

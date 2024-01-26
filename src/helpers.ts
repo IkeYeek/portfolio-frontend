@@ -1,4 +1,6 @@
-const routerHack = () => {
+const routerHack = (pages: {
+    path: string,
+}[]) => {
     const hash = document.URL.split("#");
     if (hash.length === 2) {
         for (let i = 0; i < pages.length; i += 1) {
