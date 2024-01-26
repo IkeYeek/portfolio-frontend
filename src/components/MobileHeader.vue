@@ -94,7 +94,7 @@ onMounted(() => {
   position: relative;
   color: #BE95C4;
   border: 2px solid #BE95C4;
-  padding: 7px 6px 1px 8px;
+  padding: 7px 6px 0px 8px;
   border-radius: 50%;
   box-shadow: 0 0 10px #BE95C4;
   transition: rotate 150ms ease-out, scale 150ms ease-out;
