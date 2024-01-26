@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import {onMounted, ref, watch} from "vue";
-import {router} from "../main.ts";
+import { ref } from "vue";
 import WorkingOnIt from "./WorkingOnIt.vue";
 import DesktopHeader from "./DesktopHeader.vue";
 import MobileHeader from "./MobileHeader.vue";
