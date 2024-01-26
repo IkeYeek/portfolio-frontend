@@ -27,6 +27,8 @@ watch(() => activePageIndex.value, (newPage) => {
   router.push(page.path);
 })
 
+
+
 onMounted(() => {
   // Quircky hack because the router acts weird
   activePageIndex.value = routerHack(pages) || 0;
@@ -47,18 +49,20 @@ onMounted(() => {
         <li>XR</li>
         <li>Software</li>
       </ul>
-      <i v-bind:class="{rotate: btnStatus}" id="menuBtn" @click="btnStatus = !btnStatus"><vue-feather :type="btnStatus ? xIcon: menuIcon" /></i>
+      <i v-bind:class="{rotate: btnStatus}" id="menuBtn" @click="btnStatus = !btnStatus;"><vue-feather :type="xIcon" v-if="btnStatus"/><vue-feather v-else :type="menuIcon" /></i>
     </div>
     <nav>
-      <ul v-if="btnStatus">
-        <li
-            v-for="(page, index) in pages"
-            :class="{ active: index === activePageIndex || index === currentHoverPageIndex }"
-            @mouseenter="currentHoverPageIndex=index"
-            @mouseleave="currentHoverPageIndex=-1"
-            @click="activePageIndex = index"
-        >{{ page.title }}</li>
-      </ul>
+      <Transition appear enter-active-class="animate-750ms animated zoomIn" leave-active-class="animate-750ms animated zoomOut">
+        <ul v-if="btnStatus">
+          <li
+              v-for="(page, index) in pages"
+              :class="{ active: index === activePageIndex || index === currentHoverPageIndex }"
+              @mouseenter="currentHoverPageIndex=index"
+              @mouseleave="currentHoverPageIndex=-1"
+              @click="activePageIndex = index"
+          >{{ page.title }}</li>
+        </ul>
+      </Transition>
     </nav>
     <ul id="social-links" v-if="btnStatus">
       <li><a href="https://gitlab.com/IkeYeek" target="_blank"><img src="../assets/img/gitlab.png" alt="Logo Gitlab" /></a></li>

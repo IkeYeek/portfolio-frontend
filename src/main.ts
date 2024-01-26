@@ -6,6 +6,8 @@ import '@quasar/extras/material-icons/material-icons.css'
 import 'quasar/src/css/index.sass'
 import '@quasar/extras/animate/zoomOutRight.css'
 import '@quasar/extras/animate/rubberBand.css'
+import '@quasar/extras/animate/zoomIn.css'
+import '@quasar/extras/animate/zoomOut.css'
 import './style.css'
 import App from './App.vue'
 import {createRouter, createWebHashHistory} from "vue-router";

@@ -4,7 +4,7 @@
 
 <template>
 <div id="timeline-container">
-  <q-timeline id="timeline" color="primary">
+  <q-timeline id="timeline" color="secondary">
     <q-timeline-entry heading>
       A propos de moi
     </q-timeline-entry>

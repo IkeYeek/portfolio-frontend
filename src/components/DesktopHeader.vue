@@ -108,6 +108,7 @@ header {
   justify-content: space-evenly;*/
 }
 
+
 .active {
   color: #E0B1CB;
   border-bottom: 1px solid #E0B1CB;

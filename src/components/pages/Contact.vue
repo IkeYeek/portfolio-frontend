@@ -33,7 +33,7 @@ const reset = () => {
 
 <template>
   <div id="parent">
-    <transition
+    <Transition
         appear
         leave-active-class="animate-1s animated zoomOutRight"
     >
@@ -79,12 +79,13 @@ const reset = () => {
           <q-icon right><vue-feather :type="icons.send.name" class="rotate-45"></vue-feather></q-icon>
         </q-btn>
       </q-form>
-    </transition>
-    <transition appear enter-active-class="animate-750ms animated rubberBand">
+    </Transition>
+    <Transition appear enter-active-class="animate-750ms animated rubberBand">
       <div id="sent" v-show="sendAnimationEnded">
+        <p>CE FORMULAIRE NE FONCTIONNE PAS POUR LE MOMENT! CONTACTEZ MOI SUR LINKEDIN</p>
         <p>Merci {{name}}, je vous recontacterai dès que possible !</p>
       </div>
-    </transition>
+    </Transition>
   </div>
 </template>
 
