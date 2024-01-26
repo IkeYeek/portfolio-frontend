@@ -15,4 +15,7 @@
   justify-content: center;
   align-items: center;
 }
+#img-root img {
+  max-width: 80vw;
+}
 </style>

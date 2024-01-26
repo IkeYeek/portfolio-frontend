@@ -46,6 +46,7 @@ const mainContainer = ref<HTMLDivElement | null>(null);
 }
 #panes {
   margin: 70px 10px 10px;
+
 }
 #panes {
   margin: 70px 10px 10px;
@@ -76,6 +77,8 @@ const mainContainer = ref<HTMLDivElement | null>(null);
 #mainContainer {
   width: 100%;
   height: 100%;
+  max-width: 100vw;
+
 }
 
 /* main content */

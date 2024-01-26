@@ -19,12 +19,12 @@ body {
 }
 </style>
 <style scoped>
+
 #parent {
   position: relative;
   width: 100%;
   height: 100%;
 }
-
 #threejs {
   position: fixed;
   width: 100%;
