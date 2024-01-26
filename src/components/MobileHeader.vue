@@ -2,14 +2,16 @@
 import {onMounted, ref, watch} from "vue";
 import {router} from "../main.ts";
 import { icons } from "feather-icons";
-const pages = [
-  { title: "Moi", path: "/"},
-  { title: "Mon Parcours", path: "/academics"},
-  { title: "Mes Compétences", path: "/skills"},
-  { title: "Mes Expériences", path: "/experiences"},
-  { title: "Mes Objectifs", path: "/goals"},
-  { title: "Me Contacter", path: "/contact"},
-];
+
+type Props = {
+  pages: {
+    title: String,
+    path: String,
+  }[]
+}
+
+const props = defineProps<Props>();
+const pages = props.pages;
 
 const btnStatus = ref(false);
 
@@ -118,6 +120,7 @@ nav ul li:hover {
 }
 nav ul {
   list-style-type: none;
+  padding: 0;
 }
 nav ul li {
   margin-top: 20px;

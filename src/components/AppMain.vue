@@ -5,16 +5,24 @@ import DesktopHeader from "./DesktopHeader.vue";
 import MobileHeader from "./MobileHeader.vue";
 
 
-
+const pages = [
+  { title: "Moi", path: "/"},
+  { title: "Mon Parcours", path: "/academics"},
+  { title: "Mes Compétences", path: "/skills"},
+  { title: "Mes Expériences", path: "/experiences"},
+  { title: "Mes Objectifs", path: "/goals"},
+  { title: "Me Contacter", path: "/contact"},
+];
 const mainContainer = ref<HTMLDivElement | null>(null);
 
 </script>
 
 <template>
   <div id="panes">
-    <DesktopHeader  class="desktop-only"/>
+    <DesktopHeader  class="desktop-only" :pages="pages"/>
     <div id="separator-hr" class="desktop-only"></div>
-    <MobileHeader class="mobile-only"/>
+    <MobileHeader class="mobile-only" :pages="pages"/>
+    <div id="separator-vr" class="mobile-only"></div>
     <main ref="mainContainer">
       <div id="mainContainer">
         <WorkingOnIt />
@@ -50,6 +58,19 @@ const mainContainer = ref<HTMLDivElement | null>(null);
   margin-left: 15px;
   min-width: 3px;
   background-color: #5D2E8C;
+}
+
+#separator-vr {
+  width:  98vw;
+  min-height: 3px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  min-width: 3px;
+  background-color: #5D2E8C;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
 }
 
 #mainContainer {

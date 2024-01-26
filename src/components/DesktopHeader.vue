@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import {onMounted, ref, watch} from "vue";
 import {router} from "../main.ts";
-
-const pages = [
-  { title: "Moi", path: "/"},
-  { title: "Mon Parcours", path: "/academics"},
-  { title: "Mes Compétences", path: "/skills"},
-  { title: "Mes Expériences", path: "/experiences"},
-  { title: "Mes Objectifs", path: "/goals"},
-  { title: "Me Contacter", path: "/contact"},
-];
+type Props = {
+  pages: {
+    title: string,
+    path: string,
+  }[]
+}
+const props = defineProps<Props>();
+const pages = props.pages;
 
 const activePageIndex = ref(0);
 const currentHoverPageIndex = ref(-1);
