@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import {onMounted, ref, watch} from "vue";
-import {router} from "../main.ts";
+import { onMounted, ref, watch } from "vue";
+import { router } from "../main.ts";
 import { icons } from "feather-icons";
-import {routerHack} from "../helpers.ts";
-import vueFeather from "vue-feather"
+import { routerHack } from "../helpers.ts";
+import vueFeather from "vue-feather";
 
 type Props = {
   pages: {
-    title: string,
-    path: string,
-  }[]
-}
+    title: string;
+    path: string;
+  }[];
+};
 
 const props = defineProps<Props>();
 const pages = props.pages;
@@ -22,24 +22,23 @@ const btnStatus = ref(false);
 
 const activePageIndex = ref(0);
 const currentHoverPageIndex = ref(-1);
-watch(() => activePageIndex.value, (newPage) => {
-  const page = pages[newPage];
-  router.push(page.path);
-})
-
-
+watch(
+  () => activePageIndex.value,
+  (newPage) => {
+    const page = pages[newPage];
+    router.push(page.path);
+  },
+);
 
 onMounted(() => {
   // Quircky hack because the router acts weird
   activePageIndex.value = routerHack(pages) || 0;
-
-})
+});
 </script>
 
 <template>
   <header>
     <div id="presentation">
-
       <h1>Lucas &lt;Ike&gt; Marquès</h1>
 
       <h2>Développeur passioné</h2>
@@ -49,26 +48,54 @@ onMounted(() => {
         <li>XR</li>
         <li>Software</li>
       </ul>
-      <i v-bind:class="{rotate: btnStatus}" id="menuBtn" @click="btnStatus = !btnStatus;"><vue-feather :type="xIcon" v-if="btnStatus"/><vue-feather v-else :type="menuIcon" /></i>
+      <i
+        v-bind:class="{ rotate: btnStatus }"
+        id="menuBtn"
+        @click="btnStatus = !btnStatus"
+        ><vue-feather :type="xIcon" v-if="btnStatus" /><vue-feather
+          v-else
+          :type="menuIcon"
+      /></i>
     </div>
     <nav>
-      <Transition appear enter-active-class="animate-750ms animated zoomIn" leave-active-class="animate-750ms animated zoomOut">
+      <Transition
+        appear
+        enter-active-class="animate-750ms animated zoomIn"
+        leave-active-class="animate-750ms animated zoomOut"
+      >
         <ul v-if="btnStatus">
           <li
-              v-for="(page, index) in pages"
-              :class="{ active: index === activePageIndex || index === currentHoverPageIndex }"
-              @mouseenter="currentHoverPageIndex=index"
-              @mouseleave="currentHoverPageIndex=-1"
-              @click="activePageIndex = index"
-          >{{ page.title }}</li>
+            v-for="(page, index) in pages"
+            :class="{
+              active:
+                index === activePageIndex || index === currentHoverPageIndex,
+            }"
+            @mouseenter="currentHoverPageIndex = index"
+            @mouseleave="currentHoverPageIndex = -1"
+            @click="activePageIndex = index"
+          >
+            {{ page.title }}
+          </li>
         </ul>
       </Transition>
     </nav>
     <ul id="social-links" v-if="btnStatus">
-      <li><a href="https://gitlab.com/IkeYeek" target="_blank"><img src="../assets/img/gitlab.png" alt="Logo Gitlab" /></a></li>
-      <li><a href="https://github.com/IkeYeek" target="_blank"><img src="../assets/img/github.png" alt="Logo Github" /></a></li>
+      <li>
+        <a href="https://gitlab.com/IkeYeek" target="_blank"
+          ><img src="../assets/img/gitlab.png" alt="Logo Gitlab"
+        /></a>
+      </li>
+      <li>
+        <a href="https://github.com/IkeYeek" target="_blank"
+          ><img src="../assets/img/github.png" alt="Logo Github"
+        /></a>
+      </li>
       <li><img src="../assets/img/twitter.png" alt="Logo Twitter" /></li>
-      <li><a href="https://linkedin.com/in/lucas-marques-fr" target="_blank"><img src="../assets/img/linkedin.png" alt="Logo Linkedin" /></a></li>
+      <li>
+        <a href="https://linkedin.com/in/lucas-marques-fr" target="_blank"
+          ><img src="../assets/img/linkedin.png" alt="Logo Linkedin"
+        /></a>
+      </li>
     </ul>
   </header>
 </template>
@@ -93,21 +120,22 @@ onMounted(() => {
   display: inline;
   font-family: Neuton-Light, Helvetica, sans-serif;
   font-size: 32px;
-  color: #BE95C4;
-  text-shadow: 0 0 1px #BE95C4
-
+  color: #be95c4;
+  text-shadow: 0 0 1px #be95c4;
 }
 #menuBtn {
   width: 36px;
   height: 36px;
   cursor: pointer;
   position: relative;
-  color: #BE95C4;
-  border: 2px solid #BE95C4;
+  color: #be95c4;
+  border: 2px solid #be95c4;
   padding: 4px 4px 0 4px;
   border-radius: 50%;
-  box-shadow: 0 0 10px #BE95C4;
-  transition: rotate 150ms ease-out, scale 150ms ease-out;
+  box-shadow: 0 0 10px #be95c4;
+  transition:
+    rotate 150ms ease-out,
+    scale 150ms ease-out;
 }
 .rotate {
   rotate: 90deg;
@@ -118,8 +146,8 @@ nav {
 }
 nav ul li:hover {
   cursor: pointer;
-  color: #E0B1CB;
-  border-bottom: 1px solid #E0B1CB;
+  color: #e0b1cb;
+  border-bottom: 1px solid #e0b1cb;
 }
 nav ul {
   list-style-type: none;
@@ -129,12 +157,14 @@ nav ul li {
   margin-top: 20px;
   padding: 5px 5px 15px;
   border-radius: 5px 5px 0 0;
-  border-bottom: 1px solid #BE95C4;
+  border-bottom: 1px solid #be95c4;
   font-family: Gafata;
   font-size: 24px;
-  color: #BE95C4;
-  transition: color 150ms, margin-left 150ms;
-  text-shadow: 0 0 1px #BE95C4
+  color: #be95c4;
+  transition:
+    color 150ms,
+    margin-left 150ms;
+  text-shadow: 0 0 1px #be95c4;
 }
 
 header {
@@ -142,12 +172,11 @@ header {
 }
 
 .active {
-  color: #E0B1CB;
-  border-bottom: 1px solid #E0B1CB;
+  color: #e0b1cb;
+  border-bottom: 1px solid #e0b1cb;
   margin-left: 15px;
 }
 #social-links {
-
 }
 #social-links ul {
   min-width: 30vw;
@@ -156,7 +185,6 @@ header {
 #social-links li {
   display: inline;
   margin-right: 50px;
-
 }
 #social-links li img {
   width: 24px;
@@ -165,18 +193,17 @@ header {
 h1 {
   font-family: "Gafata", Helvetica, sans-serif;
   font-size: 52px;
-  color: #E0B1CB;
+  color: #e0b1cb;
   margin-bottom: 0;
-  text-shadow: 0 0 1px #BE95C4
-
+  text-shadow: 0 0 1px #be95c4;
 }
 h2 {
   margin-top: 5px;
   margin-bottom: 0;
   font-family: Neuton-Light, Helvetica, sans-serif;
   font-size: 32px;
-  color: #BE95C4;
-  text-shadow: 0 0 1px #BE95C4
+  color: #be95c4;
+  text-shadow: 0 0 1px #be95c4;
 }
 footer {
   text-align: center;
@@ -187,7 +214,7 @@ footer {
 footer div {
   font-family: RobotoSlab;
   font-size: 14px;
-  color: #E0B1CB;
+  color: #e0b1cb;
   text-align: left;
 }
 </style>

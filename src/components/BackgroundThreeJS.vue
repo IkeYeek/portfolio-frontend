@@ -3,14 +3,15 @@
 import * as THREE from "three";
 import {
   Mesh,
-  MeshBasicMaterial, Object3D,
+  MeshBasicMaterial,
+  Object3D,
   PerspectiveCamera,
   PointLight,
   Scene,
   SphereGeometry,
-  WebGLRenderer
+  WebGLRenderer,
 } from "three";
-import {onMounted} from "vue";
+import { onMounted } from "vue";
 let threejs: HTMLDivElement;
 
 let scene: Scene;
@@ -21,9 +22,9 @@ let particles: Array<Particle> = [];
 let pause = false;
 let mouseX: number;
 let mouseY: number;
-type Particle =  Mesh<SphereGeometry, MeshBasicMaterial> & { velocity: THREE.Vector3; };
-
-
+type Particle = Mesh<SphereGeometry, MeshBasicMaterial> & {
+  velocity: THREE.Vector3;
+};
 
 const initThreeJs = () => {
   const width = window.innerWidth;
@@ -38,7 +39,7 @@ const initThreeJs = () => {
   renderer = new THREE.WebGLRenderer();
   renderer.setSize(width, height);
   threejs.appendChild(renderer.domElement);
-  renderer.setClearColor( 0x2D1B3F);
+  renderer.setClearColor(0x2d1b3f);
 
   light = new THREE.PointLight("#E0B1CB", 10, 1000);
   light.position.set(0, 0, 0);
@@ -48,7 +49,9 @@ const initThreeJs = () => {
   particles = [];
   for (let i = 0; i < 200; i++) {
     const geometry = new THREE.SphereGeometry(0.1, 32, 32);
-    const material = new THREE.MeshBasicMaterial({ color: colors[i % colors.length] });
+    const material = new THREE.MeshBasicMaterial({
+      color: colors[i % colors.length],
+    });
     const particle = new THREE.Mesh(geometry, material) as Particle;
 
     particle.position.x = (Math.random() - 0.5) * 10;
@@ -56,18 +59,18 @@ const initThreeJs = () => {
     particle.position.z = (Math.random() - 0.5) * 10;
 
     particle.velocity = new THREE.Vector3(
-        (Math.random() - 0.5) * 0.01,
-        (Math.random() - 0.5) * 0.01,
-        (Math.random() - 0.5) * 0.01
+      (Math.random() - 0.5) * 0.01,
+      (Math.random() - 0.5) * 0.01,
+      (Math.random() - 0.5) * 0.01,
     );
 
     scene.add(particle as Object3D);
     particles.push(particle);
   }
 
-  window.addEventListener('mousemove', onMouseMove, false);
+  window.addEventListener("mousemove", onMouseMove, false);
   window.addEventListener("resize", onWindowResize);
-}
+};
 const animate = () => {
   requestAnimationFrame(animate);
   if (pause) {
@@ -75,7 +78,7 @@ const animate = () => {
     return;
   }
 
-  particles.forEach(particle => {
+  particles.forEach((particle) => {
     particle.position.add(particle.velocity);
 
     if (particle.position.x > 5 || particle.position.x < -5) {
@@ -93,24 +96,22 @@ const animate = () => {
   light.position.y = mouseY;
 
   renderer.render(scene, camera);
-}
+};
 
 const onMouseMove = (event: MouseEvent) => {
   mouseX = (event.clientX / window.innerWidth) * 2 - 1;
   mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-}
+};
 
 const onWindowResize = () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
-}
+};
 onMounted(() => {
   threejs = document.getElementById("threejs")! as HTMLDivElement;
   initThreeJs();
   animate();
 });
 </script>
-<style>
-
-</style>
+<style></style>

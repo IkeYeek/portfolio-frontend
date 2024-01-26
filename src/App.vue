@@ -6,12 +6,11 @@
 </template>
 
 <script lang="ts" setup>
-import {ref} from "vue";
+import { ref } from "vue";
 import BackgroundThreeJS from "./components/BackgroundThreeJS.vue";
-import AppMain from "./components/AppMain.vue";
+import AppMain from "./components/Home.vue";
 
 const parent = ref<HTMLDivElement | null>(null);
-
 </script>
 <style>
 body {
@@ -19,7 +18,6 @@ body {
 }
 </style>
 <style scoped>
-
 #parent {
   position: relative;
   width: 100%;

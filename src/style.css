@@ -1,51 +1,51 @@
 /* preface */
 @font-face {
-    font-family: "Gafata";
-    src: local("Gafata"), url("./assets/font/Gafata-Regular.ttf");
+  font-family: "Gafata";
+  src: local("Gafata"), url("./assets/font/Gafata-Regular.ttf");
 }
 @font-face {
-    font-family: "Neuton-Light";
-    src: local("Neuton-Light"), url("./assets/font/Neuton-Light.ttf");
+  font-family: "Neuton-Light";
+  src: local("Neuton-Light"), url("./assets/font/Neuton-Light.ttf");
 }
 @font-face {
-    font-family: "RobotoSlab";
-    src: local("RobotoSlab"), url("./assets/font/RobotoSlab.ttf");
+  font-family: "RobotoSlab";
+  src: local("RobotoSlab"), url("./assets/font/RobotoSlab.ttf");
 }
 
 .external-link {
-    color: #88CCF1;
-    border-bottom: solid 1px #88CCF1;
-    text-decoration: none;
+  color: #88ccf1;
+  border-bottom: solid 1px #88ccf1;
+  text-decoration: none;
 }
 
 .external-link:visited {
-    color: #3587A4;
-    border: solid 1px #3587A4;
+  color: #3587a4;
+  border: solid 1px #3587a4;
 }
 
 .internal-link {
-    color: #D6F188;
-    border-bottom: dashed 1px #D6F188;
-    text-decoration: none;
+  color: #d6f188;
+  border-bottom: dashed 1px #d6f188;
+  text-decoration: none;
 }
 
 @media (max-width: 1450px) or (max-height: 800px) {
-    .desktop-only-perso {
-        display: none;
-    }
+  .desktop-only-perso {
+    display: none;
+  }
 }
 @media (min-width: 1450px) and (min-height: 800px) {
-    .mobile-only-perso {
-        display: none;
-    }
+  .mobile-only-perso {
+    display: none;
+  }
 }
 
 body {
-    font-family: Neuton-Light;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px black;
-    font-size: 20px;
-    color: #ebb5f3;
-    letter-spacing: 1.1pt;
-    line-height: 30px;
+  font-family: Neuton-Light;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+  font-size: 20px;
+  color: #ebb5f3;
+  letter-spacing: 1.1pt;
+  line-height: 30px;
 }

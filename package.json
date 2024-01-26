@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "pretty": "yarn prettier . --write"
   },
   "dependencies": {
     "@ntohq/buefy-next": "https://github.com/ntohq/buefy-next",
@@ -28,6 +29,7 @@
     "@typescript-eslint/parser": "^6.19.1",
     "@vitejs/plugin-vue": "^4.1.0",
     "eslint": "^8.56.0",
+    "prettier": "3.2.4",
     "sass": "^1.33.0",
     "typescript": "^5.0.2",
     "vite": "5.1.0-beta.0",
