@@ -17,22 +17,24 @@ const mainContainer = ref<HTMLDivElement | null>(null);
 </script>
 
 <template>
-  <div id="panes">
-    <DesktopHeader class="desktop-only-perso" :pages="pages"/>
+  <div id="panes" class="desktop-only-perso">
+    <DesktopHeader :pages="pages"/>
     <div id="separator-hr" class="desktop-only-perso"></div>
-    <MobileHeader class="mobile-only-perso" :pages="pages"/>
-    <div id="separator-vr" class="mobile-only-perso"></div>
     <main ref="mainContainer">
       <div id="mainContainer">
         <router-view />
       </div>
     </main>
   </div>
-  <footer class="mobile-only-perso">
-    <div id="copyleft">Copyleft <span>©</span> Lucas &lt;Ike&gt; Marquès, 2023.</div>
-    <div>Fait avec Amour, Figma et VueJS 3 </div>
-    <div><a href="https://github.com/IkeYeek/portfolio-frontend" target="_blank" class="external-link">Code source du site</a></div>
-  </footer>
+  <div class="mobile-only-perso">
+    <MobileHeader :pages="pages" />
+    <router-view />
+    <footer class="mobile-only-perso">
+      <div id="copyleft">Copyleft <span>©</span> Lucas &lt;Ike&gt; Marquès, 2023.</div>
+      <div>Fait avec Amour, Figma et VueJS 3 </div>
+      <div><a href="https://github.com/IkeYeek/portfolio-frontend" target="_blank" class="external-link">Code source du site</a></div>
+    </footer>
+  </div>
 </template>
 
 <style scoped>
@@ -83,16 +85,11 @@ const mainContainer = ref<HTMLDivElement | null>(null);
 main {
   width: 100%;
   min-height: 100%;
-  font-family: Neuton-Light;
-  font-weight: bold;
-  text-shadow: 1px 1px 2px black;
-  font-size: 20px;
-  color: #ebb5f3;
+
   overflow: auto;
   max-height: 88vh;
   z-index: 1;
-  letter-spacing: 1.1pt;
-  line-height: 30px;
+
 
 }
 main > div {

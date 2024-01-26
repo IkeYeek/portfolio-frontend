@@ -61,6 +61,7 @@
 #timeline {
   width: 80%;
   height: 80%;
+  backdrop-filter: blur(5px);
 }
 #timeline-container {
   width: 100%;
