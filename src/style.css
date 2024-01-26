@@ -29,8 +29,13 @@
     text-decoration: none;
 }
 
-@media (max-width: 1450px) {
+@media (max-width: 1450px) or (max-height: 800px) {
     .desktop-only {
+        display: none;
+    }
+}
+@media (min-width: 1450px) and (min-height: 800px) {
+    .mobile-only {
         display: none;
     }
 }

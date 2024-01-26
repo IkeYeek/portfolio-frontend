@@ -26,9 +26,10 @@ body {
 }
 
 #threejs {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
+  backdrop-filter: blur(1.5rem);
 }
 
 #content {
@@ -37,7 +38,6 @@ body {
   left: 0;
   height: 100vh;
   width: 100vw;
-  backdrop-filter: blur(1.5rem);
 }
 </style>
 

@@ -3,6 +3,7 @@ import {onMounted, ref, watch} from "vue";
 import {router} from "../main.ts";
 import WorkingOnIt from "./WorkingOnIt.vue";
 import DesktopHeader from "./DesktopHeader.vue";
+import MobileHeader from "./MobileHeader.vue";
 
 
 
@@ -13,7 +14,8 @@ const mainContainer = ref<HTMLDivElement | null>(null);
 <template>
   <div id="panes">
     <DesktopHeader  class="desktop-only"/>
-    <div id="separator" class="desktop-only"></div>
+    <div id="separator-hr" class="desktop-only"></div>
+    <MobileHeader class="mobile-only"/>
     <main ref="mainContainer">
       <div id="mainContainer">
         <WorkingOnIt />
@@ -21,12 +23,19 @@ const mainContainer = ref<HTMLDivElement | null>(null);
       </div>
     </main>
   </div>
+  <footer class="mobile-only">
+    <div id="copyleft">Copyleft <span>©</span> Lucas &lt;Ike&gt; Marquès, 2023.</div>
+    <div>Fait avec Amour, Figma et VueJS 3 </div>
+    <div><a href="https://github.com/IkeYeek/portfolio-frontend" target="_blank" class="external-link">Code source du site</a></div>
+  </footer>
 </template>
 
 <style scoped>
 /* panes */
-#panes {
-  display: flex;
+@media (min-width: 1450px) and (min-height: 800px) {
+  #panes {
+    display: flex;
+  }
 }
 #panes {
   margin: 70px 10px 10px;
@@ -36,7 +45,7 @@ const mainContainer = ref<HTMLDivElement | null>(null);
 }
 
 /* separator */
-#separator {
+#separator-hr {
   height:  88vh;
   margin-right: 15px;
   margin-left: 15px;
@@ -53,7 +62,6 @@ const mainContainer = ref<HTMLDivElement | null>(null);
 main {
   width: 100%;
   min-height: 100%;
-  padding: 10px;
   font-family: Neuton-Light;
   font-weight: bold;
   text-shadow: 1px 1px 2px black;
@@ -88,5 +96,14 @@ main > div {
 {
   background-color: #5D2E8C;
   border-radius: 10px;
+}
+footer {
+  text-align: center;
+}
+footer div {
+  font-family: RobotoSlab;
+  font-size: 14px;
+  color: #E0B1CB;
+  text-align: left;
 }
 </style>
