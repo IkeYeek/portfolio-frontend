@@ -3,6 +3,7 @@ import {onMounted, ref, watch} from "vue";
 import {router} from "../main.ts";
 import { icons } from "feather-icons";
 import {routerHack} from "../helpers.ts";
+import vueFeather from "vue-feather"
 
 type Props = {
   pages: {
@@ -13,6 +14,9 @@ type Props = {
 
 const props = defineProps<Props>();
 const pages = props.pages;
+
+const xIcon = icons.x.name;
+const menuIcon = icons.menu.name;
 
 const btnStatus = ref(false);
 
@@ -43,7 +47,7 @@ onMounted(() => {
         <li>XR</li>
         <li>Software</li>
       </ul>
-      <i v-bind:class="{rotate: btnStatus}" id="menuBtn" @click="btnStatus = !btnStatus"><i><svg v-html="btnStatus ? icons.x.toSvg() : icons.menu.toSvg()" style="width: 20pt; height: 20pt"></svg> </i></i>
+      <i v-bind:class="{rotate: btnStatus}" id="menuBtn" @click="btnStatus = !btnStatus"><i><vue-feather :type="btnStatus ? xIcon: menuIcon" /> </i></i>
     </div>
     <nav>
       <ul v-if="btnStatus">
@@ -94,13 +98,10 @@ onMounted(() => {
   position: relative;
   color: #BE95C4;
   border: 2px solid #BE95C4;
-  padding: 7px 6px 0px 8px;
+  padding: 4px 4px 0 4px;
   border-radius: 50%;
   box-shadow: 0 0 10px #BE95C4;
   transition: rotate 150ms ease-out, scale 150ms ease-out;
-}
-#menuBtn svg {
-
 }
 .rotate {
   rotate: 90deg;
