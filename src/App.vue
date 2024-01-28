@@ -1,14 +1,14 @@
 <template>
   <div id="parent" ref="parent">
     <div id="threejs"><BackgroundThreeJS /></div>
-    <div id="content"><AppMain /></div>
+    <div id="content"><Home /></div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from "vue";
 import BackgroundThreeJS from "./components/BackgroundThreeJS.vue";
-import AppMain from "./components/Home.vue";
+import Home from "./components/Home.vue";
 
 const parent = ref<HTMLDivElement | null>(null);
 </script>

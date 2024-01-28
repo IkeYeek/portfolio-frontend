@@ -46,16 +46,21 @@ const mainContainer = ref<HTMLDivElement | null>(null);
 
 <style scoped>
 /* panes */
-@media (min-width: 1450px) and (min-height: 800px) {
+@media (min-width: 1450px) and (min-height: 900px) {
   #panes {
     display: flex;
   }
 }
-#panes {
-  margin: 70px 10px 10px;
+@media (min-height: 900px) {
+  #panes {
+    margin: 50px 10px 10px;
+  }
 }
-#panes {
-  margin: 70px 10px 10px;
+
+@media (min-height: 950px) {
+  #panes {
+    margin: 70px 10px 10px;
+  }
 }
 
 /* separator */

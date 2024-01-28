@@ -139,7 +139,6 @@ nav ul li {
 }
 
 header {
-  min-width: 25vw;
   /*width: 30vw;
   z-index: 1;
   display: flex;
@@ -171,6 +170,11 @@ h1 {
   font-size: 52px;
   color: #e0b1cb;
   margin-bottom: 0;
+}
+@media (max-height: 950px) {
+  h1 {
+    margin-top: 0;
+  }
 }
 h2 {
   margin-top: 5px;

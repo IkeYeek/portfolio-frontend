@@ -1,32 +1,57 @@
 <script setup lang="ts">
-import {NamedColor} from "quasar";
+import { NamedColor } from "quasar";
+import { onBeforeUpdate, onMounted, ref } from "vue";
 
-type TimeLineEntryType = "Heading" | "Entry"
+type TimeLineEntryType = "Heading" | "Entry";
 type TimeLineEntry = {
   type: TimeLineEntryType;
   title?: string;
   subtitle?: string;
   icon?: string;
-  innerHtml?: string
-}
+  innerHtml?: string;
+};
 export type TimeLineDefinition = {
   color: NamedColor;
   entries: TimeLineEntry[];
-}
+};
 
-
-const {definition} = defineProps<{
+const { definition } = defineProps<{
   definition: TimeLineDefinition;
 }>();
+const shown = ref(true);
+const firstLoad = ref(false);
+onMounted(() => {
+  firstLoad.value = true;
+});
+
+onBeforeUpdate(() => {
+  if (!firstLoad.value) return;
+  console.log("??");
+  shown.value = false;
+  setTimeout(() => (shown.value = true), 250);
+});
 </script>
 
 <template>
   <div id="timeline-container">
-    <q-timeline id="timeline" :color="definition.color">
-      <q-timeline-entry v-for="(entry, index) in definition.entries" :heading="entry.type === 'Heading'" :key="index" :title="entry.title" :subtitle="entry.subtitle"  :icon="entry.icon">
-        <div v-html="entry.innerHtml"></div>
-      </q-timeline-entry>
-    </q-timeline>
+    <Transition
+      name="change-timeline"
+      appear-active-class="animate-250ms animated zoomOut"
+      leave-active-class="animate-250ms animated zoomIn"
+    >
+      <q-timeline id="timeline" :color="definition.color" v-show="shown">
+        <q-timeline-entry
+          v-for="(entry, index) in definition.entries"
+          :heading="entry.type === 'Heading'"
+          :key="index"
+          :title="entry.title"
+          :subtitle="entry.subtitle"
+          :icon="entry.icon"
+        >
+          <div v-html="entry.innerHtml"></div>
+        </q-timeline-entry>
+      </q-timeline>
+    </Transition>
   </div>
 </template>
 
@@ -44,4 +69,6 @@ const {definition} = defineProps<{
   justify-content: center;
   align-items: center;
 }
+
 </style>
+<style></style>

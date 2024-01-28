@@ -8,32 +8,51 @@ import "@quasar/extras/animate/zoomOutRight.css";
 import "@quasar/extras/animate/rubberBand.css";
 import "@quasar/extras/animate/zoomIn.css";
 import "@quasar/extras/animate/zoomOut.css";
+import "@quasar/extras/animate/flip.css";
+import "@quasar/extras/animate/bounceIn.css";
+import "@quasar/extras/animate/bounceOut.css";
 import "./style.css";
 import App from "./App.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 import Contact from "./components/pages/Contact.vue";
-import WorkingOnIt from "./components/WorkingOnIt.vue";
-import AboutMe from "./components/AboutMe.vue";
+import TimeLine from "./components/TimeLine.vue";
+import content from "./pagecontent.ts";
+
 const routes = [
   {
     path: "/",
-    component: AboutMe,
+    component: TimeLine,
+    props: {
+      definition: content.aboutMe,
+    },
+    meta: {
+      keepAlive: false,
+    },
   },
   {
     path: "/academics",
-    component: WorkingOnIt,
+    component: TimeLine,
+    props: {
+      definition: content.academics,
+    },
+    meta: {
+      keepAlive: false,
+    },
   },
   {
     path: "/skills",
-    component: WorkingOnIt,
+    component: TimeLine,
+    props: {
+      definition: content.skills,
+    },
   },
   {
     path: "/experiences",
-    component: WorkingOnIt,
+    component: content.experiences,
   },
   {
     path: "/goals",
-    component: WorkingOnIt,
+    component: content.goals,
   },
   {
     path: "/contact",

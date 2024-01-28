@@ -29,12 +29,12 @@
   text-decoration: none;
 }
 
-@media (max-width: 1450px) or (max-height: 800px) {
+@media (max-width: 1450px) or (max-height: 900px) {
   .desktop-only-perso {
     display: none;
   }
 }
-@media (min-width: 1450px) and (min-height: 800px) {
+@media (min-width: 1450px) and (min-height: 900px) {
   .mobile-only-perso {
     display: none;
   }
