@@ -1,6 +1,5 @@
-<script setup lang="ts">
-import { NamedColor } from "quasar";
-import { onBeforeUpdate, onMounted, ref } from "vue";
+<script lang="ts">
+import {NamedColor} from "quasar";
 
 type TimeLineEntryType = "Heading" | "Entry";
 type TimeLineEntry = {
@@ -14,10 +13,14 @@ export type TimeLineDefinition = {
   color: NamedColor;
   entries: TimeLineEntry[];
 };
-
-const { definition } = defineProps<{
+export type TimeLineProps = {
   definition: TimeLineDefinition;
-}>();
+}
+</script>
+<script setup lang="ts">
+import { onBeforeUpdate, onMounted, ref } from "vue";
+
+const { definition } = defineProps<TimeLineProps>();
 const shown = ref(true);
 const firstLoad = ref(false);
 onMounted(() => {
@@ -26,7 +29,6 @@ onMounted(() => {
 
 onBeforeUpdate(() => {
   if (!firstLoad.value) return;
-  console.log("??");
   shown.value = false;
   setTimeout(() => (shown.value = true), 250);
 });

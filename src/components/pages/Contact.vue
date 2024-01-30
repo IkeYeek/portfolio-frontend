@@ -124,7 +124,7 @@ const reset = () => {
             ></vue-feather>
           </template>
         </q-input>
-        <q-btn class="float-right" type="submit">
+        <q-btn class="float-right" type="submit" disable>
           Envoyer
           <q-icon right
             ><vue-feather

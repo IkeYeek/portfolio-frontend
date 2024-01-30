@@ -6,8 +6,8 @@ import MobileHeader from "./MobileHeader.vue";
 const pages = [
   { title: "Moi", path: "/" },
   { title: "Mon Parcours", path: "/academics" },
-  { title: "Mes Compétences", path: "/skills" },
   { title: "Mes Expériences", path: "/experiences" },
+  { title: "Mes Compétences", path: "/skills" },
   { title: "Mes Objectifs", path: "/goals" },
   { title: "Me Contacter", path: "/contact" },
 ];
@@ -59,7 +59,7 @@ const mainContainer = ref<HTMLDivElement | null>(null);
 
 @media (min-height: 950px) {
   #panes {
-    margin: 70px 10px 10px;
+    margin: 50px 10px 10px;
   }
 }
 

@@ -138,14 +138,6 @@ nav ul li {
     margin-left 150ms;
 }
 
-header {
-  /*width: 30vw;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;*/
-}
-
 .active {
   color: #e0b1cb;
   border-bottom: 1px solid #e0b1cb;
@@ -169,13 +161,9 @@ h1 {
   font-family: "Gafata", Helvetica, sans-serif;
   font-size: 52px;
   color: #e0b1cb;
-  margin-bottom: 0;
+  margin: 0;
 }
-@media (max-height: 950px) {
-  h1 {
-    margin-top: 0;
-  }
-}
+
 h2 {
   margin-top: 5px;
   margin-bottom: 0;

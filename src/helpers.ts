@@ -1,7 +1,7 @@
 const routerHack = (
-  pages: {
-    path: string;
-  }[],
+    pages: {
+      path: string;
+    }[],
 ) => {
   const hash = document.URL.split("#");
   if (hash.length === 2) {
@@ -12,4 +12,5 @@ const routerHack = (
   return null;
 };
 
-export { routerHack };
+
+export { routerHack, };
