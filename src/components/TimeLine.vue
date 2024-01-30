@@ -21,7 +21,6 @@ export type TimeLineProps = {
 import { onBeforeUpdate, onMounted, ref } from "vue";
 
 const { definition } = defineProps<TimeLineProps>();
-const shown = ref(true);
 const firstLoad = ref(false);
 onMounted(() => {
   firstLoad.value = true;
@@ -29,8 +28,6 @@ onMounted(() => {
 
 onBeforeUpdate(() => {
   if (!firstLoad.value) return;
-  shown.value = false;
-  setTimeout(() => (shown.value = true), 250);
 });
 </script>
 
@@ -38,10 +35,9 @@ onBeforeUpdate(() => {
   <div id="timeline-container">
     <Transition
       name="change-timeline"
-      appear-active-class="animate-250ms animated zoomOut"
-      leave-active-class="animate-250ms animated zoomIn"
+
     >
-      <q-timeline id="timeline" :color="definition.color" v-show="shown">
+      <q-timeline id="timeline" :color="definition.color">
         <q-timeline-entry
           v-for="(entry, index) in definition.entries"
           :heading="entry.type === 'Heading'"

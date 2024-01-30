@@ -8,17 +8,14 @@
 </template>
 
 <script lang="ts" setup>
-import {ref, watch} from "vue";
+import {Component, ref, watch} from "vue";
 import BackgroundThreeJS from "./components/BackgroundThreeJS.vue";
 import Home from "./components/Home.vue";
 import {
-  QSpinner,
   QSpinnerBall,
-  QSpinnerBars,
   QSpinnerBox,
   QSpinnerHourglass,
   QSpinnerInfinity, QSpinnerOrbit, QSpinnerOval,
-  QSpinnerPuff,
   useQuasar
 } from "quasar";
 const $q = useQuasar()
@@ -26,8 +23,8 @@ const $q = useQuasar()
 const parent = ref<HTMLDivElement | null>(null);
 const threeJSReady = ref(false);
 
-const randomSpinner: QSpinner = () => {
-  const spinners: QSpinner[] = [QSpinnerBall, QSpinnerBox, QSpinnerHourglass, QSpinnerInfinity, QSpinnerOrbit, QSpinnerOval];
+const randomSpinner = (): Component => {
+  const spinners: Component[] = [QSpinnerBall, QSpinnerBox, QSpinnerHourglass, QSpinnerInfinity, QSpinnerOrbit, QSpinnerOval];
   return spinners[Math.floor(spinners.length * Math.random())];
 }
 
@@ -37,7 +34,7 @@ watch(() => threeJSReady.value, (v) => {
   }
   if (!v && !$q.loading.isActive) {
     $q.loading.show({
-      delay: "100ms",
+      delay: 100,
       message: "Chargement...",
       spinnerColor: "secondary",
       messageColor: "primary",
