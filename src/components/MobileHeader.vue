@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from "vue";
+import {onMounted, ref, VNodeRef, watch} from "vue";
 import { router } from "../main.ts";
 import { icons } from "feather-icons";
 import { routerHack } from "../helpers.ts";
@@ -14,6 +14,7 @@ type Props = {
 
 const props = defineProps<Props>();
 const pages = props.pages;
+const menuHtmlElement = ref<HTMLElement | null>(null);
 
 const xIcon = icons.x.name;
 const menuIcon = icons.menu.name;
@@ -26,6 +27,10 @@ watch(
   () => activePageIndex.value,
   (newPage) => {
     const page = pages[newPage];
+    menuHtmlElement.value?.scrollIntoView({
+      behavior: "smooth"
+    });
+    btnStatus.value = false;
     router.push(page.path);
   },
 );
@@ -52,6 +57,7 @@ onMounted(() => {
         v-bind:class="{ rotate: btnStatus }"
         id="menuBtn"
         @click="btnStatus = !btnStatus"
+        ref="menuHtmlElement"
         ><vue-feather :type="xIcon" v-if="btnStatus" /><vue-feather
           v-else
           :type="menuIcon"
