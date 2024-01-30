@@ -119,9 +119,7 @@ main > div {
   border-radius: 10px;
 }
 footer {
-  position: absolute;
-  transform: translateX(50%);
-  right: 50%;
+  text-align: center;
 }
 footer div {
   font-family: RobotoSlab, serif;
