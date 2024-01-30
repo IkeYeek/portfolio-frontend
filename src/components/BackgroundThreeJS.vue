@@ -44,13 +44,13 @@ const initThreeJs = () => {
   renderer = new THREE.WebGLRenderer();
   renderer.setSize(width, height);
   threejs.appendChild(renderer.domElement);
-  renderer.setClearColor(0x2d1b3f);
+  renderer.setClearColor(0x2D1B3F);
 
   light = new THREE.PointLight("#E0B1CB", 10, 1000);
   light.position.set(0, 0, 0);
   scene.add(light);
 
-  const colors = ["#5D2E8C", "#BE95C4", "#2D1B3F"];
+  const colors = ["#5D2E8C", "#C7A3CC", "#2D1B3F"];
   particles = [];
   for (let i = 0; i < 200; i++) {
     const geometry = new THREE.SphereGeometry(0.1, 32, 32);
@@ -120,6 +120,6 @@ onMounted(() => {
     animate();
     emit("ready");
     loading.value = false;
-  }, 500)
+  }, 750)
 });
 </script>

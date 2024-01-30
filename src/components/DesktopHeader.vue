@@ -110,7 +110,7 @@ const keyupMenuHandler = (e: KeyboardEvent, pageIdx: number) => {
   display: inline;
   font-family: Neuton-Light, Helvetica, sans-serif;
   font-size: 32px;
-  color: #be95c4;
+  color: #C7A3CC;
   margin-right: 24px;
 }
 nav {
@@ -129,10 +129,10 @@ nav ul li {
   padding: 5px 5px 15px;
   border-radius: 5px 5px 0 0;
   width: 190px;
-  border-bottom: 1px solid #be95c4;
+  border-bottom: 1px solid #C7A3CC;
   font-family: Gafata;
   font-size: 24px;
-  color: #be95c4;
+  color: #C7A3CC;
   transition:
     color 150ms,
     margin-left 150ms;
@@ -169,7 +169,7 @@ h2 {
   margin-bottom: 0;
   font-family: Neuton-Light, Helvetica, sans-serif;
   font-size: 32px;
-  color: #be95c4;
+  color: #C7A3CC;
 }
 footer {
   text-align: center;

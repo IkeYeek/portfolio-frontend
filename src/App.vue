@@ -8,25 +8,15 @@
 </template>
 
 <script lang="ts" setup>
-import {Component, ref, watch} from "vue";
+import { ref, watch} from "vue";
 import BackgroundThreeJS from "./components/BackgroundThreeJS.vue";
 import Home from "./components/Home.vue";
-import {
-  QSpinnerBall,
-  QSpinnerBox,
-  QSpinnerHourglass,
-  QSpinnerInfinity, QSpinnerOrbit, QSpinnerOval,
-  useQuasar
-} from "quasar";
+import {QSpinnerInfinity, useQuasar} from "quasar";
+import logo from "./assets/img/logo.png";
 const $q = useQuasar()
 
 const parent = ref<HTMLDivElement | null>(null);
 const threeJSReady = ref(false);
-
-const randomSpinner = (): Component => {
-  const spinners: Component[] = [QSpinnerBall, QSpinnerBox, QSpinnerHourglass, QSpinnerInfinity, QSpinnerOrbit, QSpinnerOval];
-  return spinners[Math.floor(spinners.length * Math.random())];
-}
 
 watch(() => threeJSReady.value, (v) => {
   if (v && $q.loading.isActive) {
@@ -34,12 +24,13 @@ watch(() => threeJSReady.value, (v) => {
   }
   if (!v && !$q.loading.isActive) {
     $q.loading.show({
-      delay: 100,
-      message: "Chargement...",
-      spinnerColor: "secondary",
-      messageColor: "primary",
-      backgroundColor: "accent",
-      spinner: randomSpinner()
+      message: `<img src="${logo}"' <div class="loading-text">Chargement...</div>`,
+      spinnerColor: "primary",
+      messageColor: "secondary",
+      backgroundColor: "dark",
+      customClass: "loading-spinner",
+      spinner: QSpinnerInfinity,
+      html: true,
     });
   }
 }, { immediate: true })
@@ -51,6 +42,14 @@ const threeJSReadyHandler = () => {
 <style>
 body {
   margin: 0;
+}
+.loading-spinner {
+  background-color: #000000;
+}
+.q-loading__message {
+  display: flex;
+  flex-direction: column;
+  font-size: 3ch;
 }
 </style>
 <style scoped>
