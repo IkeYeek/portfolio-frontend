@@ -49,3 +49,9 @@ body {
   letter-spacing: 1.1pt;
   line-height: 30px;
 }
+.text-brand {
+  color: #a2aa33 !important;
+}
+.bg-brand {
+  background: #a2aa33 !important;
+}

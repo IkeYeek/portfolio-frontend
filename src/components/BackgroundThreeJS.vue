@@ -120,6 +120,6 @@ onMounted(() => {
     animate();
     emit("ready");
     loading.value = false;
-  }, 500)
+  }, 750)
 });
 </script>
