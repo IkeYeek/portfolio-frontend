@@ -159,7 +159,7 @@ nav ul li {
 }
 h1 {
   font-family: "Gafata", Helvetica, sans-serif;
-  font-size: 52px;
+  font-size: 50px;
   color: #e0b1cb;
   margin: 0;
 }
