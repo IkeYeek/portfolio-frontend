@@ -24,11 +24,13 @@ watch(() => threeJSReady.value, (v) => {
   }
   if (!v && !$q.loading.isActive) {
     $q.loading.show({
-      message: `<img src="${logo}"' <div class="loading-text">Chargement...</div>`,
+      message: `<div><img src="${logo}" /></div> <div class="loading-text">Chargement...</div>`,
       spinnerColor: "primary",
       messageColor: "secondary",
       backgroundColor: "dark",
       customClass: "loading-spinner",
+
+      spinnerSize: 100,
       spinner: QSpinnerInfinity,
       html: true,
     });
