@@ -120,19 +120,19 @@ onMounted(() => {
   display: inline;
   font-family: Neuton-Light, Helvetica, sans-serif;
   font-size: 32px;
-  color: #be95c4;
-  text-shadow: 0 0 1px #be95c4;
+  color: #C7A3CC;
+  text-shadow: 0 0 1px #C7A3CC;
 }
 #menuBtn {
   width: 36px;
   height: 36px;
   cursor: pointer;
   position: relative;
-  color: #be95c4;
-  border: 2px solid #be95c4;
+  color: #C7A3CC;
+  border: 2px solid #C7A3CC;
   padding: 4px 4px 0 4px;
   border-radius: 50%;
-  box-shadow: 0 0 10px #be95c4;
+  box-shadow: 0 0 10px #C7A3CC;
   transition:
     rotate 150ms ease-out,
     scale 150ms ease-out;
@@ -157,14 +157,14 @@ nav ul li {
   margin-top: 20px;
   padding: 5px 5px 15px;
   border-radius: 5px 5px 0 0;
-  border-bottom: 1px solid #be95c4;
+  border-bottom: 1px solid #C7A3CC;
   font-family: Gafata;
   font-size: 24px;
-  color: #be95c4;
+  color: #C7A3CC;
   transition:
     color 150ms,
     margin-left 150ms;
-  text-shadow: 0 0 1px #be95c4;
+  text-shadow: 0 0 1px #C7A3CC;
 }
 
 header {
@@ -195,15 +195,15 @@ h1 {
   font-size: 52px;
   color: #e0b1cb;
   margin-bottom: 0;
-  text-shadow: 0 0 1px #be95c4;
+  text-shadow: 0 0 1px #C7A3CC;
 }
 h2 {
   margin-top: 5px;
   margin-bottom: 0;
   font-family: Neuton-Light, Helvetica, sans-serif;
   font-size: 32px;
-  color: #be95c4;
-  text-shadow: 0 0 1px #be95c4;
+  color: #C7A3CC;
+  text-shadow: 0 0 1px #C7A3CC;
 }
 footer {
   text-align: center;
