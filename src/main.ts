@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import { Quasar } from "quasar";
+import { Quasar, Loading } from "quasar";
 import "@quasar/extras/roboto-font-latin-ext/roboto-font-latin-ext.css";
 import "@quasar/extras/material-icons/material-icons.css";
 
@@ -65,7 +65,12 @@ export const router = createRouter({
 const app = createApp(App);
 app.use(router);
 app.use(Quasar, {
-  plugins: {}, // import Quasar plugins and add here
+  plugins: {
+    Loading
+  },
+  config: {
+    loading: {}/* look at QuasarConfOptions from the API card */
+  }
 });
 
 app.mount("#app");

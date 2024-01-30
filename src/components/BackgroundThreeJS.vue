@@ -1,6 +1,12 @@
 <template><div id="threejs"></div></template>
 <script lang="ts" setup>
-import * as THREE from "three";
+import {useQuasar} from "quasar";
+
+const emit = defineEmits<{
+  ready: [];
+}>();
+const THREE = await import("three");
+const loading = ref(true);
 import {
   Mesh,
   MeshBasicMaterial,
@@ -11,7 +17,7 @@ import {
   SphereGeometry,
   WebGLRenderer,
 } from "three";
-import { onMounted } from "vue";
+import {onMounted, ref} from "vue";
 let threejs: HTMLDivElement;
 
 let scene: Scene;
@@ -109,9 +115,12 @@ const onWindowResize = () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
 };
 onMounted(() => {
-  threejs = document.getElementById("threejs")! as HTMLDivElement;
-  initThreeJs();
-  animate();
+  setTimeout(() => {
+    threejs = document.getElementById("threejs")! as HTMLDivElement;
+    initThreeJs();
+    animate();
+    emit("ready");
+    loading.value = false;
+  }, 2500);
 });
 </script>
-<style></style>
