@@ -1,6 +1,5 @@
 <template><div id="threejs"></div></template>
 <script lang="ts" setup>
-import {useQuasar} from "quasar";
 
 const emit = defineEmits<{
   ready: [];
@@ -121,6 +120,6 @@ onMounted(() => {
     animate();
     emit("ready");
     loading.value = false;
-  }, 2500);
+  }, 500)
 });
 </script>

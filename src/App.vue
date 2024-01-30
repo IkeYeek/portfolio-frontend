@@ -1,7 +1,7 @@
 <template>
   <div id="parent" ref="parent">
     <div id="threejs"><Suspense>
-      <BackgroundThreeJS @ready="threeJSReadyHandler"/>
+      <BackgroundThreeJS @ready="threeJSReadyHandler" />
     </Suspense></div>
     <div id="content" v-if="threeJSReady"><Home /></div>
   </div>
@@ -11,18 +11,39 @@
 import {ref, watch} from "vue";
 import BackgroundThreeJS from "./components/BackgroundThreeJS.vue";
 import Home from "./components/Home.vue";
-import {useQuasar} from "quasar";
+import {
+  QSpinner,
+  QSpinnerBall,
+  QSpinnerBars,
+  QSpinnerBox,
+  QSpinnerHourglass,
+  QSpinnerInfinity, QSpinnerOrbit, QSpinnerOval,
+  QSpinnerPuff,
+  useQuasar
+} from "quasar";
 const $q = useQuasar()
 
 const parent = ref<HTMLDivElement | null>(null);
 const threeJSReady = ref(false);
+
+const randomSpinner: QSpinner = () => {
+  const spinners: QSpinner[] = [QSpinnerBall, QSpinnerBox, QSpinnerHourglass, QSpinnerInfinity, QSpinnerOrbit, QSpinnerOval];
+  return spinners[Math.floor(spinners.length * Math.random())];
+}
 
 watch(() => threeJSReady.value, (v) => {
   if (v && $q.loading.isActive) {
     $q.loading.hide();
   }
   if (!v && !$q.loading.isActive) {
-    $q.loading.show();
+    $q.loading.show({
+      delay: "100ms",
+      message: "Chargement...",
+      spinnerColor: "secondary",
+      messageColor: "primary",
+      backgroundColor: "accent",
+      spinner: randomSpinner()
+    });
   }
 }, { immediate: true })
 
@@ -46,7 +67,6 @@ body {
   width: 100%;
   height: 100%;
   backdrop-filter: blur(1.5rem);
-  background-color: #2d1b3f;
 }
 
 #content {
