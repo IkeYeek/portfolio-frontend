@@ -1,5 +1,5 @@
 const aboutMe = {
-  color: "secondary",
+  color: "accent",
   entries: [
     {
       title: "A propos de moi",
@@ -91,7 +91,7 @@ const aboutMe = {
 }
 
 const academics = {
-  color: "secondary",
+  color: "accent",
   entries: [
     {
       title: "Mon Parcours",
@@ -135,7 +135,7 @@ const academics = {
 }
 
 const experiences = {
-  color: "secondary",
+  color: "accent",
   entries: [
     {
       title: "Mes Expériences",
