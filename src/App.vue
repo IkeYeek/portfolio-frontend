@@ -64,7 +64,7 @@ body {
   position: fixed;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(1.5rem);
+  backdrop-filter: blur(2rem);
 }
 
 #content {
