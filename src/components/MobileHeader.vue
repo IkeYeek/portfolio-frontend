@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import {onMounted, ref, VNodeRef, watch} from "vue";
-import { router } from "../main.ts";
+import { onMounted, ref, watch, toRefs } from "vue";
 import { icons } from "feather-icons";
 import { routerHack } from "../helpers.ts";
 import vueFeather from "vue-feather";
@@ -10,36 +9,42 @@ type Props = {
     title: string;
     path: string;
   }[];
+  currentPage: number;
 };
 
 const props = defineProps<Props>();
-const pages = props.pages;
+const { pages, currentPage } = toRefs<Props>(props);
 const menuHtmlElement = ref<HTMLElement | null>(null);
+const emit = defineEmits<{
+  pageChange: [number];
+}>();
 
 const xIcon = icons.x.name;
 const menuIcon = icons.menu.name;
 
 const btnStatus = ref(false);
 
-const activePageIndex = ref(0);
+const activePageIndex = ref(currentPage.value);
 const currentHoverPageIndex = ref(-1);
 watch(
   () => activePageIndex.value,
   (newPage) => {
-    const page = pages[newPage];
+    emit("pageChange", newPage);
     menuHtmlElement.value?.scrollIntoView({
-      behavior: "smooth"
+      behavior: "smooth",
     });
     btnStatus.value = false;
-    router.push(page.path);
   },
 );
 
 onMounted(() => {
   // Quircky hack because the router acts weird
-  activePageIndex.value = routerHack(pages) || 0;
+  activePageIndex.value = routerHack(pages.value) || 0;
 });
-</script>
+
+watch(() => currentPage.value,
+    (v) => activePageIndex.value = v);
+</script> 
 
 <template>
   <header>
@@ -126,19 +131,19 @@ onMounted(() => {
   display: inline;
   font-family: Neuton-Light, Helvetica, sans-serif;
   font-size: 32px;
-  color: #C7A3CC;
-  text-shadow: 0 0 1px #C7A3CC;
+  color: #c7a3cc;
+  text-shadow: 0 0 1px #c7a3cc;
 }
 #menuBtn {
   width: 36px;
   height: 36px;
   cursor: pointer;
   position: relative;
-  color: #C7A3CC;
-  border: 2px solid #C7A3CC;
+  color: #c7a3cc;
+  border: 2px solid #c7a3cc;
   padding: 4px 4px 0 4px;
   border-radius: 50%;
-  box-shadow: 0 0 10px #C7A3CC;
+  box-shadow: 0 0 10px #c7a3cc;
   transition:
     rotate 150ms ease-out,
     scale 150ms ease-out;
@@ -163,14 +168,14 @@ nav ul li {
   margin-top: 20px;
   padding: 5px 5px 15px;
   border-radius: 5px 5px 0 0;
-  border-bottom: 1px solid #C7A3CC;
+  border-bottom: 1px solid #c7a3cc;
   font-family: Gafata;
   font-size: 24px;
-  color: #C7A3CC;
+  color: #c7a3cc;
   transition:
     color 150ms,
     margin-left 150ms;
-  text-shadow: 0 0 1px #C7A3CC;
+  text-shadow: 0 0 1px #c7a3cc;
 }
 
 header {
@@ -201,15 +206,15 @@ h1 {
   font-size: 52px;
   color: #e0b1cb;
   margin-bottom: 0;
-  text-shadow: 0 0 1px #C7A3CC;
+  text-shadow: 0 0 1px #c7a3cc;
 }
 h2 {
   margin-top: 5px;
   margin-bottom: 0;
   font-family: Neuton-Light, Helvetica, sans-serif;
   font-size: 32px;
-  color: #C7A3CC;
-  text-shadow: 0 0 1px #C7A3CC;
+  color: #c7a3cc;
+  text-shadow: 0 0 1px #c7a3cc;
 }
 footer {
   text-align: center;

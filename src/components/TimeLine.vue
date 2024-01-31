@@ -1,5 +1,5 @@
 <script lang="ts">
-import {NamedColor} from "quasar";
+import { NamedColor } from "quasar";
 
 type TimeLineEntryType = "Heading" | "Entry";
 type TimeLineEntry = {
@@ -8,6 +8,7 @@ type TimeLineEntry = {
   subtitle?: string;
   icon?: string;
   innerHtml?: string;
+  linkTo?: string;
 };
 export type TimeLineDefinition = {
   color: NamedColor;
@@ -15,7 +16,7 @@ export type TimeLineDefinition = {
 };
 export type TimeLineProps = {
   definition: TimeLineDefinition;
-}
+};
 </script>
 <script setup lang="ts">
 import { onBeforeUpdate, onMounted, ref } from "vue";
@@ -29,14 +30,17 @@ onMounted(() => {
 onBeforeUpdate(() => {
   if (!firstLoad.value) return;
 });
+
+const handleClick = (entry: TimeLineEntry) => {
+  if (entry.linkTo !== undefined) {
+    //TODO
+  }
+};
 </script>
 
 <template>
   <div id="timeline-container">
-    <Transition
-      name="change-timeline"
-
-    >
+    <Transition name="change-timeline">
       <q-timeline id="timeline" :color="definition.color">
         <q-timeline-entry
           v-for="(entry, index) in definition.entries"
@@ -45,6 +49,7 @@ onBeforeUpdate(() => {
           :title="entry.title"
           :subtitle="entry.subtitle"
           :icon="entry.icon"
+          @click="() => handleClick(entry)"
         >
           <div v-html="entry.innerHtml"></div>
         </q-timeline-entry>
@@ -66,6 +71,5 @@ onBeforeUpdate(() => {
   justify-content: center;
   align-items: center;
 }
-
 </style>
 <style></style>

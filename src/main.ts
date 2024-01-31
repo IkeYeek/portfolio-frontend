@@ -17,7 +17,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import content from "./components/pages/pagecontent.ts";
 import WorkingOnIt from "./components/WorkingOnIt.vue";
 const TimeLine = () => import("./components/TimeLine.vue");
-const Contact = () => import("./components/pages/Contact.vue")
+const Contact = () => import("./components/pages/Contact.vue");
 const routes = [
   {
     path: "/",
@@ -34,25 +34,25 @@ const routes = [
     },
   },
   {
-    path: "/skills",
-    component: WorkingOnIt
+    path: "/my-skills",
+    component: WorkingOnIt,
   },
   {
-    path: "/experiences",
+    path: "/my-experiences",
     component: TimeLine,
     props: {
       definition: content.experiences,
     },
   },
   {
-    path: "/goals",
+    path: "/my-goals",
     component: TimeLine,
     props: {
       definition: content.goals,
-    }
+    },
   },
   {
-    path: "/contact",
+    path: "/contact-me",
     component: Contact,
   },
 ];
@@ -67,11 +67,11 @@ const app = createApp(App);
 app.use(router);
 app.use(Quasar, {
   plugins: {
-    Loading
+    Loading,
   },
   config: {
-    loading: {}
-  }
+    loading: {},
+  },
 });
 
 app.mount("#app");

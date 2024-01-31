@@ -1,25 +1,43 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import {ref} from "vue";
 import DesktopHeader from "./DesktopHeader.vue";
 import MobileHeader from "./MobileHeader.vue";
+
+const props = defineProps<{
+  currentPage: number;
+}>();
+
+const emit = defineEmits<{
+  pageChange: [number];
+}>();
+
+const  currentPage  = ref(props.currentPage);
 
 const pages = [
   { title: "Moi", path: "/" },
   { title: "Mon Parcours", path: "/academics" },
-  { title: "Mes Expériences", path: "/experiences" },
-  { title: "Mes Compétences", path: "/skills" },
-  { title: "Mes Objectifs", path: "/goals" },
-  { title: "Me Contacter", path: "/contact" },
+  { title: "Mes Expériences", path: "/my-experiences" },
+  { title: "Mes Compétences", path: "/my-skills" },
+  { title: "Mes Objectifs", path: "/my-goals" },
+  { title: "Me Contacter", path: "/contact-me" },
 ];
 const mainContainer = ref<HTMLDivElement | null>(null);
-const scrollContentPaneUp = () => {
+const pageChange = (pageIdx: number) => {
+  emit("pageChange", pageIdx);
   mainContainer.value?.scrollIntoView();
-}
+  currentPage.value = pageIdx;
+};
+
+
 </script>
 
 <template>
   <div id="panes" class="desktop-only-perso">
-    <DesktopHeader :pages="pages" @pageChange="scrollContentPaneUp"/>
+    <DesktopHeader
+      :pages="pages"
+      @pageChange="pageChange"
+      :currentPage="currentPage"
+    />
     <div id="separator-hr" class="desktop-only-perso"></div>
     <main ref="main">
       <div id="mainContainer" ref="mainContainer">
@@ -28,7 +46,11 @@ const scrollContentPaneUp = () => {
     </main>
   </div>
   <div class="mobile-only-perso">
-    <MobileHeader :pages="pages" />
+    <MobileHeader
+      :pages="pages"
+      @pageChange="pageChange"
+      :currentPage="currentPage"
+    />
     <router-view />
     <footer class="mobile-only-perso">
       <div id="copyleft">

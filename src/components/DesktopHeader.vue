@@ -1,37 +1,38 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from "vue";
-import { router } from "../main.ts";
+import { onMounted, ref, watch, toRefs } from "vue";
 import { routerHack } from "../helpers.ts";
 type Props = {
   pages: {
     title: string;
     path: string;
   }[];
+  currentPage: number;
 };
 const props = defineProps<Props>();
-const pages = props.pages;
+const { pages, currentPage } = toRefs<Props>(props);
 
-const activePageIndex = ref(0);
+const activePageIndex = ref(currentPage.value);
 const currentHoverPageIndex = ref(-1);
 
 const emit = defineEmits<{
-  pageChange: [],
+  pageChange: [number];
 }>();
 watch(
   () => activePageIndex.value,
   (newPage) => {
-    const page = pages[newPage];
-    emit("pageChange");
-    router.push(page.path);
+    emit("pageChange", newPage);
   },
 );
 
 onMounted(() => {
-  activePageIndex.value = routerHack(pages) || 0;
+  activePageIndex.value = routerHack(pages.value) || 0;
 });
+watch(() => currentPage.value,
+    (v) => activePageIndex.value = v);
+
 
 const keyupMenuHandler = (e: KeyboardEvent, pageIdx: number) => {
-  if (pageIdx < pages.length && e.code === "Enter")
+  if (pageIdx < pages.value.length && e.code === "Enter")
     activePageIndex.value = pageIdx;
 };
 </script>
@@ -115,7 +116,7 @@ const keyupMenuHandler = (e: KeyboardEvent, pageIdx: number) => {
   display: inline;
   font-family: Neuton-Light, Helvetica, sans-serif;
   font-size: 32px;
-  color: #C7A3CC;
+  color: #c7a3cc;
   margin-right: 24px;
 }
 nav {
@@ -134,10 +135,10 @@ nav ul li {
   padding: 5px 5px 15px;
   border-radius: 5px 5px 0 0;
   width: 190px;
-  border-bottom: 1px solid #C7A3CC;
+  border-bottom: 1px solid #c7a3cc;
   font-family: Gafata;
   font-size: 24px;
-  color: #C7A3CC;
+  color: #c7a3cc;
   transition:
     color 150ms,
     margin-left 150ms;
@@ -174,7 +175,7 @@ h2 {
   margin-bottom: 0;
   font-family: Neuton-Light, Helvetica, sans-serif;
   font-size: 32px;
-  color: #C7A3CC;
+  color: #c7a3cc;
 }
 footer {
   text-align: center;

@@ -1,6 +1,5 @@
 <template><div id="threejs"></div></template>
 <script lang="ts" setup>
-
 const emit = defineEmits<{
   ready: [];
 }>();
@@ -16,7 +15,7 @@ import {
   SphereGeometry,
   WebGLRenderer,
 } from "three";
-import {onMounted, ref} from "vue";
+import { onMounted, ref } from "vue";
 let threejs: HTMLDivElement;
 
 let scene: Scene;
@@ -44,7 +43,7 @@ const initThreeJs = () => {
   renderer = new THREE.WebGLRenderer();
   renderer.setSize(width, height);
   threejs.appendChild(renderer.domElement);
-  renderer.setClearColor(0x2D1B3F);
+  renderer.setClearColor(0x2d1b3f);
 
   light = new THREE.PointLight("#E0B1CB", 10, 1000);
   light.position.set(0, 0, 0);
@@ -120,6 +119,6 @@ onMounted(() => {
     animate();
     emit("ready");
     loading.value = false;
-  }, 750)
+  }, 750);
 });
 </script>
