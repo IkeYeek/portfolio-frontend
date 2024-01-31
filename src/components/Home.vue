@@ -12,14 +12,17 @@ const pages = [
   { title: "Me Contacter", path: "/contact" },
 ];
 const mainContainer = ref<HTMLDivElement | null>(null);
+const scrollContentPaneUp = () => {
+  mainContainer.value?.scrollIntoView();
+}
 </script>
 
 <template>
   <div id="panes" class="desktop-only-perso">
-    <DesktopHeader :pages="pages" />
+    <DesktopHeader :pages="pages" @pageChange="scrollContentPaneUp"/>
     <div id="separator-hr" class="desktop-only-perso"></div>
-    <main ref="mainContainer">
-      <div id="mainContainer">
+    <main ref="main">
+      <div id="mainContainer" ref="mainContainer">
         <router-view />
       </div>
     </main>

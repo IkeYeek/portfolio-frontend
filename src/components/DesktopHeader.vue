@@ -13,10 +13,15 @@ const pages = props.pages;
 
 const activePageIndex = ref(0);
 const currentHoverPageIndex = ref(-1);
+
+const emit = defineEmits<{
+  pageChange: [],
+}>();
 watch(
   () => activePageIndex.value,
   (newPage) => {
     const page = pages[newPage];
+    emit("pageChange");
     router.push(page.path);
   },
 );

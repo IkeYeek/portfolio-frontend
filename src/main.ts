@@ -15,6 +15,7 @@ import "@quasar/extras/animate/bounceOut.css";
 import App from "./App.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 import content from "./components/pages/pagecontent.ts";
+import WorkingOnIt from "./components/WorkingOnIt.vue";
 const TimeLine = () => import("./components/TimeLine.vue");
 const Contact = () => import("./components/pages/Contact.vue")
 const routes = [
@@ -34,10 +35,7 @@ const routes = [
   },
   {
     path: "/skills",
-    component: TimeLine,
-    props: {
-      definition: content.skills,
-    },
+    component: WorkingOnIt
   },
   {
     path: "/experiences",
@@ -48,7 +46,10 @@ const routes = [
   },
   {
     path: "/goals",
-    component: content.goals,
+    component: TimeLine,
+    props: {
+      definition: content.goals,
+    }
   },
   {
     path: "/contact",
