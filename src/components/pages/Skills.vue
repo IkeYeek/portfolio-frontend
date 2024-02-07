@@ -3,7 +3,6 @@ import SkillsCard from "../SkillsCard.vue";
 import {onMounted, onUnmounted, ref} from "vue";
 
 const skillCards = ref<HTMLDivElement | null>(null);
-const eventListener = ref<number | undefined>(undefined);
 
 const adjustHeightProgrammatically = () => {
   if (skillCards.value === null) return;
@@ -17,8 +16,8 @@ const adjustHeightProgrammatically = () => {
 
   if (maxHeight === 0) return; // TODO figure out wtf is going on
 
-  skillCardElements.forEach((skillCard: HTMLDivElement) => {
-    const cardContent = skillCard.children[0] as HTMLElement;
+  skillCardElements.forEach((skillCard) => {
+    const cardContent = skillCard.children[0] as HTMLDivElement;
     cardContent.style.height = `${maxHeight}px`;
   });
 };
@@ -34,7 +33,7 @@ onUnmounted(() => {
 
 <template>
   <div id="skill-cards" ref="skillCards">
-    <SkillsCard v-for="i in 8" key="i" title="VueJS" imgAlt="VueJS logo" imgSrc="../assets/img/vue-logo.png" description="lorem" :rating="4"/>
+    <SkillsCard v-for="i in 8" :key="i" title="VueJS" imgAlt="VueJS logo" imgSrc="../assets/img/vue-logo.png" description="lorem" :rating="4"/>
   </div>
 </template>
 

@@ -16,12 +16,14 @@ const setZIndex = (e: HTMLElement, v: number) => e.style.zIndex = v.toString();
 const importedImage = ref("");
 
 const hoverOn = () => {
+  if (hoverElem.value === null) return;
   const t = (hoverElem.value.$el as HTMLDivElement)
   t.style.position = "fixed";
   setZIndex(t, 1);
 }
 
 const hoverOff = () => {
+  if (hoverElem.value === null) return;
   const t = (hoverElem.value.$el as HTMLDivElement)
   setZIndex(t, 2);
   setTimeout(() => {
