@@ -40,7 +40,7 @@ const keyupMenuHandler = (e: KeyboardEvent, pageIdx: number) => {
 <template>
   <header>
     <div id="presentation">
-      <h1>Lucas &lt;Ike&gt; Marquès</h1>
+      <h1>Lucas &lt;Ike&gt;</h1>
       <h2>Développeur passioné</h2>
       <ul>
         <li>Web</li>

@@ -15,7 +15,7 @@ import {
   SphereGeometry,
   WebGLRenderer,
 } from "three";
-import { onMounted, ref } from "vue";
+import {onMounted, onUnmounted, ref} from "vue";
 let threejs: HTMLDivElement;
 
 let scene: Scene;
@@ -119,6 +119,10 @@ onMounted(() => {
     animate();
     emit("ready");
     loading.value = false;
-  }, 750);
+  }, 750);  // timeout because my website loads 2fast2display my loading screen 😎 (thx god it literally is a jam site)
+});
+onUnmounted(() => {
+  window.removeEventListener("resize", onWindowResize);
+  window.removeEventListener("mousemove", onMouseMove);
 });
 </script>
