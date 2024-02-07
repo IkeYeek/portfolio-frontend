@@ -120,7 +120,7 @@ main {
   width: 100%;
   min-height: 100%;
 
-  overflow: scroll;
+  overflow-y: scroll;
   max-height: 88vh;
   z-index: 1;
   background-color: rgba(35, 21, 49, 0.5);
