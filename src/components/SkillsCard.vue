@@ -13,7 +13,6 @@ const props = defineProps<{
 }>();
 
 const setZIndex = (e: HTMLElement, v: number) => e.style.zIndex = v.toString();
-const importedImage = ref("");
 
 const hoverOn = () => {
   if (hoverElem.value === null) return;
@@ -37,7 +36,6 @@ onMounted(() => {
     divElem.value!.style.minWidth = hoverElem.value!.$el.style.width;
     divElem.value!.style.minHeight = hoverElem.value!.$el.style.height;
   }
-  import(props.imgSrc).then(v => importedImage.value = v.default)
 })
 
 </script>
@@ -45,7 +43,7 @@ onMounted(() => {
 <template>
 <div id="skill-card-container" ref="divElem">
   <q-card class="skill-card" :onmouseenter="hoverOn" :onmouseleave="hoverOff" ref="hoverElem">
-    <q-img :src="importedImage" :alt="props.imgAlt" width="250px" height="250px" ratio="1:1" >
+    <q-img :src="props.imgSrc" :alt="props.imgAlt" width="250px" height="250px" ratio="1:1" >
       <div class="absolute-bottom text-h6">
         {{props.title}}
         <span class="float-right"><q-rating :model-value="+props.rating" readonly icon="school" color="secondary" :max="6"><template v-slot:tip-1>

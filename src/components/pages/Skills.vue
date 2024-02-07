@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import SkillsCard from "../SkillsCard.vue";
 import {onMounted, onUnmounted, ref} from "vue";
+import VueLogo from "../../assets/img/vue-logo.png";
 
 const skillCards = ref<HTMLDivElement | null>(null);
 
@@ -33,7 +34,7 @@ onUnmounted(() => {
 
 <template>
   <div id="skill-cards" ref="skillCards">
-    <SkillsCard v-for="i in 8" :key="i" title="VueJS" imgAlt="VueJS logo" imgSrc="../assets/img/vue-logo.png" description="lorem" :rating="4"/>
+    <SkillsCard v-for="i in 8" :key="i" title="VueJS" imgAlt="VueJS logo" :imgSrc="VueLogo" description="lorem" :rating="4"/>
   </div>
 </template>
 
