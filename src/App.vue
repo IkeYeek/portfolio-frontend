@@ -105,6 +105,7 @@ body {
   left: 0;
   height: 100vh;
   width: 100vw;
+  overflow-x: hidden;
 }
 </style>
 

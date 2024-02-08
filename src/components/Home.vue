@@ -51,7 +51,9 @@ const pageChange = (pageIdx: number) => {
       @pageChange="pageChange"
       :currentPage="currentPage"
     />
-    <router-view />
+    <div class="mobile-main">
+      <router-view />
+    </div>
     <footer class="mobile-only-perso">
       <div id="copyleft">
         Copyleft <span>©</span> Lucas &lt;Ike&gt; Marquès, 2023.
@@ -86,6 +88,10 @@ const pageChange = (pageIdx: number) => {
   #panes {
     margin: 50px 10px 10px;
   }
+}
+
+.mobile-main {
+  overflow-x: hidden;
 }
 
 /* separator */

@@ -17,7 +17,10 @@ const setZIndex = (e: HTMLElement, v: number) => e.style.zIndex = v.toString();
 const hoverOn = () => {
   if (hoverElem.value === null) return;
   const t = (hoverElem.value.$el as HTMLDivElement)
-  t.style.position = "fixed";
+  const savePos = t.getBoundingClientRect();
+  if (window.innerHeight > 800 && window.innerWidth > 1450) t.style.position = "fixed";
+  t.style.left = savePos.left.toString();
+  t.style.top = savePos.top.toString();
   setZIndex(t, 1);
 }
 
