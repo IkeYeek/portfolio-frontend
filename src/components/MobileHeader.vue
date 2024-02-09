@@ -30,7 +30,7 @@ watch(
   () => activePageIndex.value,
   (newPage) => {
     emit("pageChange", newPage);
-    menuHtmlElement.value?.scrollIntoView({
+    menuHtmlElement.value!.scrollIntoView({
       behavior: "smooth",
     });
     btnStatus.value = false;

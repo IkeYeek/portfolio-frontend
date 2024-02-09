@@ -159,6 +159,7 @@ const reset = () => {
   height: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  padding: 50px;
 }
 #sent {
   display: flex;
