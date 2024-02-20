@@ -107,6 +107,10 @@ body {
   width: 100vw;
   overflow-x: hidden;
 }
+@media (min-width: 600px) and (min-height: 600px) {
+#content {
+}
+}
 </style>
 
 <style scoped>

@@ -73,13 +73,13 @@ const pageChange = (pageIdx: number) => {
 
 <style scoped>
 /* panes */
-@media (min-width: 800px) and (min-height: 800px) {
+@media (min-width: 600px) and (min-height: 725px) {
   #panes {
     display: flex;
     margin: 20px 10px 10px;
   }
 }
-@media (min-height: 950px) {
+@media (min-height: 725px) {
   #panes {
     margin: 50px 10px 10px;
   }

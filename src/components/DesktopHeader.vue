@@ -47,8 +47,8 @@ const keyupMenuHandler = (e: KeyboardEvent, pageIdx: number) => {
         <li>Mobile</li>
         <li>XR</li>
         <li>Software</li>
-      </ul>
-    </div>
+      </ul></div>
+
     <nav>
       <ul>
         <li
@@ -104,6 +104,11 @@ const keyupMenuHandler = (e: KeyboardEvent, pageIdx: number) => {
 </template>
 
 <style scoped>
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 #presentation {
   text-align: center;
 }
@@ -111,6 +116,7 @@ const keyupMenuHandler = (e: KeyboardEvent, pageIdx: number) => {
 #presentation ul {
   margin-top: 5px;
   padding: 0;
+
 }
 #presentation ul li {
   display: inline;
@@ -137,7 +143,7 @@ nav ul li {
   width: 190px;
   border-bottom: 1px solid #c7a3cc;
   font-family: Gafata;
-  font-size: 18px;
+  font-size: 16px;
   color: #c7a3cc;
   transition:
     color 150ms,
@@ -158,6 +164,7 @@ nav ul li {
 #social-links li {
   display: inline;
   margin-right: 50px;
+
 }
 #social-links li img {
   width: 24px;
@@ -166,38 +173,23 @@ nav ul li {
 h1 {
   font-family: "Gafata", Helvetica, sans-serif;
   color: #e0b1cb;
+  font-size: 40px;
   margin: 0;
-  font-size: 42px;
+  line-height:  1.2;
+  display: inline-block;
 }
 h2 {
   margin-top: 5px;
-  margin-bottom: 0;
   font-family: Neuton-Light, Helvetica, sans-serif;
-  font-size: 28px;
+  font-size: 26px;
   color: #c7a3cc;
-}
-
-@media (min-height: 900px) {
-  h1 {
-    font-size: 48px;
-  }
-
-  h2 {
-    font-size: 30px;
-  }
-  #presentation ul li {
-    font-size: 28px;
-  }
-  nav ul li {
-    font-size: 23px;
-  }
+  display: inline-block;
+  line-height:  1.2;
+  height: 26px;
 }
 
 footer {
   text-align: center;
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
 }
 footer div {
   font-family: RobotoSlab;
