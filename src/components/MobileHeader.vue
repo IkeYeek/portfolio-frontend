@@ -26,6 +26,7 @@ const btnStatus = ref(false);
 
 const activePageIndex = ref(currentPage.value);
 const currentHoverPageIndex = ref(-1);
+const avoidScrollAtFirst = ref(false);
 const scrollToHamburgerMenu = () => {
   if (menuHtmlElement.value === null) return;
   menuHtmlElement.value.scrollIntoView({
@@ -37,7 +38,11 @@ watch(
   (newPage) => {
     console.log("??");
     emit("pageChange", newPage);
-    scrollToHamburgerMenu();
+    if (!avoidScrollAtFirst.value) {
+      avoidScrollAtFirst.value = true;
+    } else {
+      scrollToHamburgerMenu();
+    }
     btnStatus.value = false;
   },
 );
