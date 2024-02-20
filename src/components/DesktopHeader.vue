@@ -72,7 +72,7 @@ const keyupMenuHandler = (e: KeyboardEvent, pageIdx: number) => {
     </nav>
     <ul id="social-links">
       <li>
-        <a href="https://blog.ike.icu/" target="_blank"
+        <a href="https://blog.ike.icu/"
           ><img src="../assets/img/logo.png" alt="Mon blog"
         /></a>
       </li>
