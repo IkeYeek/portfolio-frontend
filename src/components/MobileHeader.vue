@@ -26,13 +26,18 @@ const btnStatus = ref(false);
 
 const activePageIndex = ref(currentPage.value);
 const currentHoverPageIndex = ref(-1);
+const scrollToHamburgerMenu = () => {
+  if (menuHtmlElement.value === null) return;
+  menuHtmlElement.value.scrollIntoView({
+    behavior: "smooth",
+  });
+}
 watch(
   () => activePageIndex.value,
   (newPage) => {
+    console.log("??");
     emit("pageChange", newPage);
-    menuHtmlElement.value!.scrollIntoView({
-      behavior: "smooth",
-    });
+    scrollToHamburgerMenu();
     btnStatus.value = false;
   },
 );
@@ -63,7 +68,7 @@ watch(
       <i
         v-bind:class="{ rotate: btnStatus }"
         id="menuBtn"
-        @click="btnStatus = !btnStatus"
+        @click="() => {btnStatus = !btnStatus; scrollToHamburgerMenu();}"
         ref="menuHtmlElement"
         ><vue-feather :type="xIcon" v-if="btnStatus" /><vue-feather
           v-else
@@ -189,6 +194,7 @@ header {
   margin-left: 15px;
 }
 #social-links {
+  text-align: center;
 }
 #social-links ul {
   min-width: 30vw;
