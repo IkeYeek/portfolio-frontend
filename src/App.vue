@@ -41,7 +41,7 @@ const pageChange = (idx: number) => {
 const parent = ref<HTMLDivElement | null>(null);
 const loaded = ref(false);
 
-setTimeout(() => loaded.value = true, 500);
+setTimeout(() => loaded.value = true, 750);
 
 watch(
   () => loaded.value,
@@ -72,6 +72,7 @@ body {
 }
 .loading-spinner {
   background-color: #000000;
+  background-image: url("https://blog.ike.icu/content/images/size/w1920/2024/02/jb5rpeIA_4x.jpg");
 }
 .q-loading__message {
   display: flex;
