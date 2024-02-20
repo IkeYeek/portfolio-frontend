@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref} from "vue";
+import { ref } from "vue";
 import DesktopHeader from "./DesktopHeader.vue";
 import MobileHeader from "./MobileHeader.vue";
 
@@ -11,7 +11,7 @@ const emit = defineEmits<{
   pageChange: [number];
 }>();
 
-const  currentPage  = ref(props.currentPage);
+const currentPage = ref(props.currentPage);
 
 const pages = [
   { title: "Moi", path: "/" },
@@ -27,8 +27,6 @@ const pageChange = (pageIdx: number) => {
   mainContainer.value?.scrollIntoView();
   currentPage.value = pageIdx;
 };
-
-
 </script>
 
 <template>
@@ -125,7 +123,6 @@ main {
   max-height: 88vh;
   z-index: 1;
   background-color: rgba(35, 21, 49, 0.5);
-
 }
 main > div {
   z-index: 999;

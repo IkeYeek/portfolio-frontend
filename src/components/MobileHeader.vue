@@ -42,9 +42,11 @@ onMounted(() => {
   activePageIndex.value = routerHack(pages.value) || 0;
 });
 
-watch(() => currentPage.value,
-    (v) => activePageIndex.value = v);
-</script> 
+watch(
+  () => currentPage.value,
+  (v) => (activePageIndex.value = v),
+);
+</script>
 
 <template>
   <header>

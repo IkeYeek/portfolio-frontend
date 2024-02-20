@@ -27,9 +27,10 @@ watch(
 onMounted(() => {
   activePageIndex.value = routerHack(pages.value) || 0;
 });
-watch(() => currentPage.value,
-    (v) => activePageIndex.value = v);
-
+watch(
+  () => currentPage.value,
+  (v) => (activePageIndex.value = v),
+);
 
 const keyupMenuHandler = (e: KeyboardEvent, pageIdx: number) => {
   if (pageIdx < pages.value.length && e.code === "Enter")
@@ -47,7 +48,8 @@ const keyupMenuHandler = (e: KeyboardEvent, pageIdx: number) => {
         <li>Mobile</li>
         <li>XR</li>
         <li>Software</li>
-      </ul></div>
+      </ul>
+    </div>
 
     <nav>
       <ul>
@@ -116,7 +118,6 @@ header {
 #presentation ul {
   margin-top: 5px;
   padding: 0;
-
 }
 #presentation ul li {
   display: inline;
@@ -164,7 +165,6 @@ nav ul li {
 #social-links li {
   display: inline;
   margin-right: 50px;
-
 }
 #social-links li img {
   width: 24px;
@@ -175,7 +175,7 @@ h1 {
   color: #e0b1cb;
   font-size: 40px;
   margin: 0;
-  line-height:  1.2;
+  line-height: 1.2;
   display: inline-block;
 }
 h2 {
@@ -184,7 +184,7 @@ h2 {
   font-size: 26px;
   color: #c7a3cc;
   display: inline-block;
-  line-height:  1.2;
+  line-height: 1.2;
   height: 26px;
 }
 
