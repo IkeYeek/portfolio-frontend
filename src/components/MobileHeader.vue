@@ -51,7 +51,7 @@ watch(
 <template>
   <header>
     <div id="presentation">
-      <h1>Lucas &lt;Ike&gt; Marquès</h1>
+      <h1>Lucas &lt;Ike&gt;</h1>
 
       <h2>Développeur passioné</h2>
       <ul>
@@ -94,19 +94,18 @@ watch(
     </nav>
     <ul id="social-links" v-if="btnStatus">
       <li>
-        <a href="https://gitlab.com/IkeYeek" target="_blank"
-          ><img src="../assets/img/gitlab.png" alt="Logo Gitlab"
+        <a href="https://blog.ike.icu/"
+        ><img src="../assets/img/logo.png" alt="Mon blog"
         /></a>
       </li>
       <li>
         <a href="https://github.com/IkeYeek" target="_blank"
-          ><img src="../assets/img/github.png" alt="Logo Github"
+        ><img src="../assets/img/github.png" alt="Logo Github"
         /></a>
       </li>
-      <li><img src="../assets/img/twitter.png" alt="Logo Twitter" /></li>
       <li>
         <a href="https://linkedin.com/in/lucas-marques-fr" target="_blank"
-          ><img src="../assets/img/linkedin.png" alt="Logo Linkedin"
+        ><img src="../assets/img/linkedin.png" alt="Logo Linkedin"
         /></a>
       </li>
     </ul>
