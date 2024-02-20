@@ -72,8 +72,8 @@ const keyupMenuHandler = (e: KeyboardEvent, pageIdx: number) => {
     </nav>
     <ul id="social-links">
       <li>
-        <a href="https://gitlab.com/IkeYeek" target="_blank"
-          ><img src="../assets/img/gitlab.png" alt="Logo Gitlab"
+        <a href="https://blog.ike.icu/" target="_blank"
+          ><img src="../assets/img/logo.png" alt="Mon blog"
         /></a>
       </li>
       <li>
@@ -81,7 +81,6 @@ const keyupMenuHandler = (e: KeyboardEvent, pageIdx: number) => {
           ><img src="../assets/img/github.png" alt="Logo Github"
         /></a>
       </li>
-      <li><img src="../assets/img/twitter.png" alt="Logo Twitter" /></li>
       <li>
         <a href="https://linkedin.com/in/lucas-marques-fr" target="_blank"
           ><img src="../assets/img/linkedin.png" alt="Logo Linkedin"
@@ -110,6 +109,9 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  background-color: rgba(35, 21, 49, 0.75);
+  padding: 10px;
+  border-radius: 5px;
 }
 #presentation {
   text-align: center;

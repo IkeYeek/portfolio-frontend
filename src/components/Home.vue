@@ -71,7 +71,7 @@ const pageChange = (pageIdx: number) => {
 
 <style scoped>
 /* panes */
-@media (min-width: 600px) and (min-height: 725px) {
+@media (min-width: 760px) and (min-height: 725px) {
   #panes {
     display: flex;
     margin: 20px 10px 10px;
@@ -118,11 +118,11 @@ const pageChange = (pageIdx: number) => {
 main {
   width: 100%;
   min-height: 100%;
-
   overflow-y: scroll;
   max-height: 88vh;
   z-index: 1;
-  background-color: rgba(35, 21, 49, 0.5);
+  border-radius: 5px;
+  background-color: rgba(35, 21, 49, 0.75);
 }
 main > div {
   z-index: 999;

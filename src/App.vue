@@ -1,11 +1,7 @@
 <template>
   <div id="parent" ref="parent">
-    <div id="threejs">
-      <Suspense>
-        <BackgroundThreeJS @ready="threeJSReadyHandler" />
-      </Suspense>
-    </div>
-    <div id="content" v-if="threeJSReady">
+    <div id="bg"></div>
+    <div id="content" v-if="loaded">
       <Home :currentPage="currentPage" @pageChange="pageChange" />
     </div>
   </div>
@@ -13,7 +9,6 @@
 
 <script lang="ts" setup>
 import { ref, watch } from "vue";
-import BackgroundThreeJS from "./components/BackgroundThreeJS.vue";
 import Home from "./components/Home.vue";
 import { QSpinnerInfinity, useQuasar } from "quasar";
 import logo from "./assets/img/logo.png";
@@ -44,10 +39,12 @@ const pageChange = (idx: number) => {
 };
 
 const parent = ref<HTMLDivElement | null>(null);
-const threeJSReady = ref(false);
+const loaded = ref(false);
+
+setTimeout(() => loaded.value = true, 500);
 
 watch(
-  () => threeJSReady.value,
+  () => loaded.value,
   (v) => {
     if (v && $q.loading.isActive) {
       $q.loading.hide();
@@ -68,10 +65,6 @@ watch(
   },
   { immediate: true },
 );
-
-const threeJSReadyHandler = () => {
-  threeJSReady.value = true;
-};
 </script>
 <style>
 body {
@@ -92,11 +85,11 @@ body {
   width: 100%;
   height: 100%;
 }
-#threejs {
+#bg {
   position: fixed;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(2rem);
+  background-image: url("https://blog.ike.icu/content/images/size/w1920/2024/02/jb5rpeIA_4x.jpg");
 }
 
 #content {
@@ -106,8 +99,9 @@ body {
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
+  backdrop-filter: blur(1.5rem);
 }
-@media (min-width: 600px) and (min-height: 600px) {
+@media (min-width: 760px) and (min-height: 760px) {
   #content {
   }
 }
