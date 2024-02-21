@@ -2,6 +2,8 @@
 import vueFeather from "vue-feather";
 import { icons } from "feather-icons";
 import { ref } from "vue";
+import logo from "../../assets/img/logo.png";
+import {QSpinnerInfinity, useQuasar} from "quasar";
 const name = ref("");
 const email = ref("");
 const object = ref("");
@@ -9,9 +11,20 @@ const message = ref("");
 
 const sent = ref(false);
 const sendAnimationEnded = ref(false);
-
+const $q = useQuasar();
 const send = async () => {
   if (sent.value) return;
+  $q.loading.show({
+    message: `<div><img src="${logo}" /></div> <div class="loading-text">Chargement...</div>`,
+    spinnerColor: "primary",
+    messageColor: "secondary",
+    backgroundColor: "dark",
+    customClass: "loading-spinner",
+
+    spinnerSize: 100,
+    spinner: QSpinnerInfinity,
+    html: true,
+  });
 
   const formData = new URLSearchParams({
     name: name.value,
@@ -20,25 +33,33 @@ const send = async () => {
     message: message.value
   }).toString();
 
-  await fetch("https://backend.ike.icu/contact", {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    body: formData,
-    mode: "cors"
-  });
-
-  sent.value = true;
-  setTimeout(() => {
-    sendAnimationEnded.value = true;
-  }, 1000);
+  try {
+    await fetch("https://backend.ike.icu/contact", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: formData,
+      mode: "cors"
+    });
+    sent.value = true;
+    setTimeout(() => {
+      sendAnimationEnded.value = true;
+    }, 1000);
+  } catch (e) {
+    console.error(e);
+    errMessage.value = "Impossible d'envoyer un message via ce formulaire pour le moment. Contactez moi par linkedin en attendant !"
+  } finally {
+    $q.loading.hide();
+  }
 };
 
 const isValidEmail = (email: string) => {
   const regex = /^[A-Za-z0-9+_.-]+@(.+)$/;
   return regex.test(email);
 };
+
+const errMessage = ref<null | string>(null);
 
 const reset = () => {
   name.value = "";
@@ -52,6 +73,9 @@ const reset = () => {
   <div id="parent">
     <Transition appear leave-active-class="animate-1s animated zoomOutRight">
       <q-form id="contact-form" v-if="!sent" @submit="send" @reset="reset">
+        <Transition appear enter-active-class="animate-1s animated rubberBand">
+          <p class="err-msg" v-show="errMessage !== null">{{errMessage}} </p>
+        </Transition>
         <q-input
           input-class="form-input"
           filled
@@ -199,6 +223,10 @@ p {
 }
 .reset-field {
   color: $secondary;
+}
+.err-msg {
+  color: $secondary;
+  text-align: center;
 }
 </style>
 <style lang="scss">
