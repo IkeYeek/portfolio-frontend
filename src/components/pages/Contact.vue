@@ -16,6 +16,7 @@ const send = async () => {
   let res = await fetch("https://backend.ike.icu/contact", {
     method: "POST",
     body: encodeURIComponent(`name=${name.value}&email=${email.value}&object=${object.value}&message=${message.value}`),
+    mode: "same-origin"
   });
 
   console.log(res);
