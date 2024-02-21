@@ -182,7 +182,7 @@ const reset = () => {
   margin-top: 15px;
 }
 p {
-  color: $primary;
+  color: #9247de;
 }
 .reset-field {
   color: $secondary;
@@ -191,6 +191,6 @@ p {
 <style lang="scss">
 @import "src/quasar-variables";
 .form-input {
-  color: $primary;
+  color: #e0b1cb;
 }
 </style>
