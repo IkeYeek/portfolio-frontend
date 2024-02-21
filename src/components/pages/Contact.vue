@@ -13,13 +13,21 @@ const sendAnimationEnded = ref(false);
 const send = async () => {
   if (sent.value) return;
 
-  let res = await fetch("https://backend.ike.icu/contact", {
+  const formData = new URLSearchParams({
+    name: name.value,
+    email: email.value,
+    object: object.value,
+    message: message.value
+  }).toString();
+
+  await fetch("https://backend.ike.icu/contact", {
     method: "POST",
-    body: encodeURIComponent(`name=${name.value}&email=${email.value}&object=${object.value}&message=${message.value}`),
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: formData,
     mode: "cors"
   });
-
-  console.log(res);
 
   sent.value = true;
   setTimeout(() => {
