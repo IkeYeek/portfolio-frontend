@@ -36,7 +36,6 @@ const scrollToHamburgerMenu = () => {
 watch(
   () => activePageIndex.value,
   (newPage) => {
-    console.log("??");
     emit("pageChange", newPage);
     if (!avoidScrollAtFirst.value) {
       avoidScrollAtFirst.value = true;

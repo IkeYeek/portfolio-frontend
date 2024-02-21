@@ -10,8 +10,16 @@ const message = ref("");
 const sent = ref(false);
 const sendAnimationEnded = ref(false);
 
-const send = () => {
+const send = async () => {
   if (sent.value) return;
+
+  let res = await fetch("https://backend.ike.icu/contact", {
+    method: "POST",
+    body: encodeURIComponent(`name=${name.value}&email=${email.value}&object=${object.value}&message=${message.value}`),
+  });
+
+  console.log(res);
+
   sent.value = true;
   setTimeout(() => {
     sendAnimationEnded.value = true;
@@ -124,7 +132,7 @@ const reset = () => {
             ></vue-feather>
           </template>
         </q-input>
-        <q-btn class="float-right" type="submit" disable>
+        <q-btn class="float-right" type="submit">
           Envoyer
           <q-icon right
             ><vue-feather
@@ -137,10 +145,6 @@ const reset = () => {
     </Transition>
     <Transition appear enter-active-class="animate-750ms animated rubberBand">
       <div id="sent" v-show="sendAnimationEnded">
-        <p>
-          CE FORMULAIRE NE FONCTIONNE PAS POUR LE MOMENT! CONTACTEZ MOI SUR
-          LINKEDIN
-        </p>
         <p>Merci {{ name }}, je vous recontacterai dès que possible !</p>
       </div>
     </Transition>
