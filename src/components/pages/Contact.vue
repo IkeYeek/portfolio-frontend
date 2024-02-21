@@ -15,7 +15,7 @@ const $q = useQuasar();
 const send = async () => {
   if (sent.value) return;
   $q.loading.show({
-    message: `<div><img src="${logo}" /></div> <div class="loading-text">Chargement...</div>`,
+    message: `<div><img src="${logo}" /></div> <div class="loading-text">Envoi en cours...</div>`,
     spinnerColor: "primary",
     messageColor: "secondary",
     backgroundColor: "dark",
