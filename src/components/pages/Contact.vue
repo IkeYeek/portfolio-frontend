@@ -225,7 +225,7 @@ p {
   color: $secondary;
 }
 .err-msg {
-  color: $secondary;
+  color: $negative;
   text-align: center;
 }
 </style>
