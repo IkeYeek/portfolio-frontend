@@ -84,18 +84,4 @@ const handleClick = (entry: TimeLineEntry) => {
 .q-timeline__heading-title:last-child {
   margin-bottom: 100px;
 }
-.isLinkTo h3 {
-  display: flex;
-  justify-content: center;
-}
-.isLinkTo h3 div {
-  background-color: rgba(29, 29, 29, 0.5);
-  border-radius: 5px;
-  padding: 10px;
-  transition: background-color 250ms ease-in-out;
-}
-.isLinkTo h3 div:hover {
-  background-color: rgba(156, 39, 176, 0.25);
-  cursor: pointer;
-}
 </style>

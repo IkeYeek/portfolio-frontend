@@ -161,9 +161,18 @@ const entries: CardEntry[] = [
   }
 ]
 
+const emit = defineEmits<{
+  (e: 'navigateTo', value: string): void
+}>();
+
 </script>
 
 <template>
+  <div class="isLinkTo">
+    <h3>
+      <div @click="emit('navigateTo', '/my-experiences')">Mes Expériences</div>
+    </h3>
+  </div>
   <div id="skill-cards" ref="skillCards">
     <SkillsCard
       v-for="(card, idx) in entries"
@@ -174,6 +183,11 @@ const entries: CardEntry[] = [
       :description="card.description"
       :rating="card.rating"
     />
+    <div class="isLinkTo" style="display: block; width: 100%">
+      <h3>
+        <div @click="emit('navigateTo', '/my-goals')">Mes Objectifs</div>
+      </h3>
+    </div>
   </div>
 </template>
 

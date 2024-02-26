@@ -30,7 +30,6 @@ const pageChange = (pageIdx: number) => {
 const navigateTo = (dest: string) => {
   for (let i = 0; i < pages.length; i += 1) {
     let entry = pages[i];
-    console.log(`${entry.path} - ${dest}`)
     if (entry.path === dest) {
       pageChange(i);
     }

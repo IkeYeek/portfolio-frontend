@@ -57,6 +57,12 @@ const academics = {
   path: "/academics",
   entries: [
     {
+      title: "A propos de moi",
+      type: "Heading",
+      innerHtml: "A propos de moi",
+      linkTo: "/",
+    },
+    {
       title: "Mon Parcours",
       type: "Heading",
       innerHtml: "Mon Parcours",
@@ -107,6 +113,12 @@ const experiences = {
   color: "accent",
   path: "/my-experiences",
   entries: [
+    {
+      title: "Mon Parcours",
+      type: "Heading",
+      innerHtml: "Mon Parcours",
+      linkTo: "/academics",
+    },
     {
       title: "Mes Expériences",
       type: "Heading",
@@ -171,6 +183,12 @@ const goals = {
   color: "accent",
   path: "/my-goals",
   entries: [
+    {
+      title: "Mes Compétences",
+      type: "Heading",
+      innerHtml: "Mes Compétences",
+      linkTo: "/my-skills",
+    },
     {
       title: "Mes Objectifs",
       type: "Heading",
