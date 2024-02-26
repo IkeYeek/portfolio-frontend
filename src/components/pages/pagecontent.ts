@@ -98,7 +98,7 @@ const academics = {
       title: "Mes Expériences",
       type: "Heading",
       innerHtml: "Mes Expériences",
-      linkTo: "/experiences",
+      linkTo: "/my-experiences",
     },
   ],
 };
@@ -162,7 +162,7 @@ const experiences = {
       title: "Mes Compétences",
       type: "Heading",
       innerHtml: "Mes Compétences",
-      linkTo: "/skills",
+      linkTo: "/my-skills",
     },
   ],
 };
@@ -207,6 +207,12 @@ const goals = {
       icon: "graphic_eq",
       innerHtml:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rutrum mollis ultricies. Praesent nec lobortis diam. Quisque egestas leo ac sapien condimentum gravida. Donec ac leo porttitor, pellentesque nulla ac, tincidunt ligula. Nulla non ullamcorper urna, eu tincidunt magna. Praesent aliquam ex eu nulla convallis ultricies.",
+    },
+    {
+      title: "Me Contacter",
+      type: "Heading",
+      innerHtml: "Me Contacter",
+      linkTo: "/contact-me"
     },
   ],
 };

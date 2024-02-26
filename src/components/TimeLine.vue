@@ -20,7 +20,9 @@ export type TimeLineProps = {
 </script>
 <script setup lang="ts">
 import { onBeforeUpdate, onMounted, ref } from "vue";
-
+const emit = defineEmits<{
+  (e: 'navigateTo', value: string): void
+}>();
 const { definition } = defineProps<TimeLineProps>();
 const firstLoad = ref(false);
 onMounted(() => {
@@ -33,7 +35,7 @@ onBeforeUpdate(() => {
 
 const handleClick = (entry: TimeLineEntry) => {
   if (entry.linkTo !== undefined) {
-    //TODO
+    emit("navigateTo", entry.linkTo!);
   }
 };
 </script>
@@ -49,6 +51,9 @@ const handleClick = (entry: TimeLineEntry) => {
           :title="entry.title"
           :subtitle="entry.subtitle"
           :icon="entry.icon"
+          :class="{
+            isLinkTo: entry.linkTo !== undefined
+          }"
           @click="() => handleClick(entry)"
         >
           <div v-html="entry.innerHtml"></div>
@@ -72,4 +77,25 @@ const handleClick = (entry: TimeLineEntry) => {
   align-items: center;
 }
 </style>
-<style></style>
+<style lang="scss">
+.q-timeline__heading-title {
+  text-align: center;
+}
+.q-timeline__heading-title:last-child {
+  margin-bottom: 100px;
+}
+.isLinkTo h3 {
+  display: flex;
+  justify-content: center;
+}
+.isLinkTo h3 div {
+  background-color: rgba(29, 29, 29, 0.5);
+  border-radius: 5px;
+  padding: 10px;
+  transition: background-color 250ms ease-in-out;
+}
+.isLinkTo h3 div:hover {
+  background-color: rgba(156, 39, 176, 0.25);
+  cursor: pointer;
+}
+</style>

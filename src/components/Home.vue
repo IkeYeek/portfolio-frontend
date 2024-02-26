@@ -27,6 +27,15 @@ const pageChange = (pageIdx: number) => {
   mainContainer.value?.scrollIntoView();
   currentPage.value = pageIdx;
 };
+const navigateTo = (dest: string) => {
+  for (let i = 0; i < pages.length; i += 1) {
+    let entry = pages[i];
+    console.log(`${entry.path} - ${dest}`)
+    if (entry.path === dest) {
+      pageChange(i);
+    }
+  }
+}
 </script>
 
 <template>
@@ -39,7 +48,7 @@ const pageChange = (pageIdx: number) => {
     <div id="separator-hr" class="desktop-only-perso"></div>
     <main ref="main">
       <div id="mainContainer" ref="mainContainer">
-        <router-view />
+        <router-view @navigateTo="navigateTo" />
       </div>
     </main>
   </div>
@@ -50,7 +59,7 @@ const pageChange = (pageIdx: number) => {
       :currentPage="currentPage"
     />
     <div class="mobile-main">
-      <router-view />
+      <router-view @navigateTo="navigateTo" />
     </div>
     <footer class="mobile-only-perso">
       <div id="copyleft">
