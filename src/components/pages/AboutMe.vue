@@ -6,6 +6,7 @@ import handleBlogRSS from "../../blogRSSHandler.ts";
 
 const props = defineProps(["definition"]);
 const emit = defineEmits(["navigateTo"]);
+const blogDown = ref(false);
 
 type CardEntry = {
   title: string,
@@ -21,14 +22,18 @@ const openBlogPost = (post: CardEntry) =>{
 }
 
 onMounted(async () => {
-  let blogPosts = (await handleBlogRSS()).item;
-  for (let blogPost of blogPosts) {
-    entries.value.push({
-      title: blogPost.title,
-      alt: blogPost.image?.alt || "no image",
-      src: blogPost.image?.link || "",
-      link: blogPost.link
-    })
+  try {
+    let blogPosts = (await handleBlogRSS()).item;
+    for (let blogPost of blogPosts) {
+      entries.value.push({
+        title: blogPost.title,
+        alt: blogPost.image?.alt || "no image",
+        src: blogPost.image?.link || "",
+        link: blogPost.link
+      })
+    }
+  } catch (e) {
+    blogDown.value = true;
   }
   entries.value.push({
     title: "Tous mes articles",
@@ -43,15 +48,18 @@ onMounted(async () => {
   <div>
     <h4>Mes derniers articles de blog:</h4>
     <div id="skill-cards" ref="skillCards">
-      <SkillsCard
-          v-for="(card, idx) in entries"
-          :key="idx"
-          :title="card.title"
-          :imgAlt="card.alt"
-          :imgSrc="card.src"
-          :block-modal="true"
-          @click="openBlogPost(card)"
-      />
+      <template v-if="blogDown">Mon blog est temporairement hors ligne, il revient très vite !</template>
+      <template v-else>
+        <SkillsCard
+            v-for="(card, idx) in entries"
+            :key="idx"
+            :title="card.title"
+            :imgAlt="card.alt"
+            :imgSrc="card.src"
+            :block-modal="true"
+            @click="openBlogPost(card)"
+        />
+      </template>
     </div>
     <div id="content">
       <TimeLine :definition="props.definition"/>
