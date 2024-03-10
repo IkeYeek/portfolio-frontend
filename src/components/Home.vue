@@ -17,8 +17,8 @@ const pages = [
   { title: "Moi", path: "/" },
   { title: "Mon Parcours", path: "/academics" },
   { title: "Mes Expériences", path: "/my-experiences" },
-  { title: "Mes Compétences", path: "/my-skills" },
-  { title: "Mes Objectifs", path: "/my-goals" },
+  { title: "Mes Connaissances", path: "/my-skills" },
+  { title: "Mes Compétences", path: "/what-can-i-do" },
   { title: "Me Contacter", path: "/contact-me" },
 ];
 const mainContainer = ref<HTMLDivElement | null>(null);

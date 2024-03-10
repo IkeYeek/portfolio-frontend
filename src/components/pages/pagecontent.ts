@@ -13,34 +13,34 @@ const aboutMe = {
       icon: "account_circle",
       type: "Entry",
       innerHtml:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rutrum mollis ultricies. Praesent nec lobortis diam. Quisque egestas leo ac sapien condimentum gravida. Donec ac leo porttitor, pellentesque nulla ac, tincidunt ligula. Nulla non ullamcorper urna, eu tincidunt magna. Praesent aliquam ex eu nulla convallis ultricies. Aenean ullamcorper ultricies iaculis. Nam eu purus vitae risus maximus lobortis. Duis porttitor purus id ex ornare vehicula. Donec facilisis libero felis, quis vestibulum quam auctor nec. Etiam sed neque sit amet est lobortis porttitor at et lorem. In tortor nisl, bibendum sed nisl eu, cursus mattis enim.",
+        "Je suis né à Tours, dans le centre de la France mais j'ai grandit dans la campagne périgourdine avant de me rendre à Bordeaux pour mes études supérieures.",
     },
     {
       title: "Informatique & Programmation",
       icon: "code",
       type: "Entry",
       innerHtml:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rutrum mollis ultricies. Praesent nec lobortis diam. Quisque egestas leo ac sapien condimentum gravida. Donec ac leo porttitor, pellentesque nulla ac, tincidunt ligula. Nulla non ullamcorper urna, eu tincidunt magna. Praesent aliquam ex eu nulla convallis ultricies. Aenean ullamcorper ultricies iaculis. Nam eu purus vitae risus maximus lobortis. Duis porttitor purus id ex ornare vehicula. Donec facilisis libero felis, quis vestibulum quam auctor nec. Etiam sed neque sit amet est lobortis porttitor at et lorem. In tortor nisl, bibendum sed nisl eu, cursus mattis enim.",
+        "J'ai commencé à programmer à l'âge de 12 ans car je voulais être capable de créer mon propre launcher Minecraft. Après avoir passé beaucoup de temps à essayer de jouer avec Java sans jamais vraiment l'apprendre, j'ai commencé à rentrer sérieusement dans la programmation en faisant mes premiers sites webs en HTML/CSS/PHP grâce aux cours du SiteDuZéro et de Grafikart. C'est depuis - avec l'informatique - une de mes plus grandes passions, et c'est principalement pour ça que j'ai décidé d'en faire mon métier.",
     },
     {
       title: "Musique & Composition",
       icon: "music_note",
       type: "Entry",
       innerHtml:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rutrum mollis ultricies. Praesent nec lobortis diam. Quisque egestas leo ac sapien condimentum gravida. Donec ac leo porttitor, pellentesque nulla ac, tincidunt ligula. Nulla non ullamcorper urna, eu tincidunt magna. Praesent aliquam ex eu nulla convallis ultricies. Aenean ullamcorper ultricies iaculis. Nam eu purus vitae risus maximus lobortis. Duis porttitor purus id ex ornare vehicula. Donec facilisis libero felis, quis vestibulum quam auctor nec. Etiam sed neque sit amet est lobortis porttitor at et lorem. In tortor nisl, bibendum sed nisl eu, cursus mattis enim.",
+        "Ma deuxième passion dans la vie, c'est la musique. J'ai commencé par la guitare au collège avant de découvrir la musique teKno, dont je suis très vite tombé amoureux. Aujourd'hui, je mix et produit principalement des styles de musique teKno tels que de l'acidcore ou de la tribe / mental etc. Parallèlement à ça j'ai longtemps été un grand consommateur de Rock / Grunge et de Rap Francophone.",
     },
     {
       title: "Autodidacte",
       icon: "local_library",
       type: "Entry",
       innerHtml:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rutrum mollis ultricies. Praesent nec lobortis diam. Quisque egestas leo ac sapien condimentum gravida. Donec ac leo porttitor, pellentesque nulla ac, tincidunt ligula. Nulla non ullamcorper urna, eu tincidunt magna. Praesent aliquam ex eu nulla convallis ultricies. Aenean ullamcorper ultricies iaculis. Nam eu purus vitae risus maximus lobortis. Duis porttitor purus id ex ornare vehicula. Donec facilisis libero felis, quis vestibulum quam auctor nec. Etiam sed neque sit amet est lobortis porttitor at et lorem. In tortor nisl, bibendum sed nisl eu, cursus mattis enim.",
+        "Même si j'ai suivi des études d'informatique, je me considère comme autodidacte. J'ai commencé l'informatique en apprenant seul, de même pour la guitare et la MAO et l'immense majorité des competences que j'ai aujourd'hui. Pour moi, la meilleur manière d'apprendre c'est d'expérimenter, et internet reste une source infinie de connaissance sur tous les sujets.",
     },
     {
       title: "Engagement & Ethique",
       icon: "diversity_3",
       innerHtml:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rutrum mollis ultricies. Praesent nec lobortis diam. Quisque egestas leo ac sapien condimentum gravida. Donec ac leo porttitor, pellentesque nulla ac, tincidunt ligula. Nulla non ullamcorper urna, eu tincidunt magna. Praesent aliquam ex eu nulla convallis ultricies. Aenean ullamcorper ultricies iaculis. Nam eu purus vitae risus maximus lobortis. Duis porttitor purus id ex ornare vehicula. Donec facilisis libero felis, quis vestibulum quam auctor nec. Etiam sed neque sit amet est lobortis porttitor at et lorem. In tortor nisl, bibendum sed nisl eu, cursus mattis enim.",
+        "Je place l'éthique au centre de mon activité. Je choisis avec sérieux les personnes avec qui je travaille afin de m'assurer qu'ils n'outrepassent pas mes valeurs morales dans l'objectif de pouvoir toujours donner le meilleurs de moi-même.",
       type: "Entry",
     },
     {
@@ -173,74 +173,19 @@ const experiences = {
     {
       title: "Mes Compétences",
       type: "Heading",
-      innerHtml: "Mes Compétences",
+      innerHtml: "Mes Connaissances",
       linkTo: "/my-skills",
     },
   ],
 };
 
-const goals = {
-  color: "accent",
-  path: "/my-goals",
-  entries: [
-    {
-      title: "Mes Compétences",
-      type: "Heading",
-      innerHtml: "Mes Compétences",
-      linkTo: "/my-skills",
-    },
-    {
-      title: "Mes Objectifs",
-      type: "Heading",
-      innerHtml: "Mes Objectifs",
-    },
-    {
-      title: "Master Informatique",
-      type: "Entry",
-      icon: "school",
-      subtitle: "septembre 2024",
-      innerHtml:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rutrum mollis ultricies. Praesent nec lobortis diam. Quisque egestas leo ac sapien condimentum gravida. Donec ac leo porttitor, pellentesque nulla ac, tincidunt ligula. Nulla non ullamcorper urna, eu tincidunt magna. Praesent aliquam ex eu nulla convallis ultricies.",
-    },
-    {
-      title: "Freelance",
-      type: "Entry",
-      icon: "work",
-      subtitle: "avril 2024",
-      innerHtml:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rutrum mollis ultricies. Praesent nec lobortis diam. Quisque egestas leo ac sapien condimentum gravida. Donec ac leo porttitor, pellentesque nulla ac, tincidunt ligula. Nulla non ullamcorper urna, eu tincidunt magna. Praesent aliquam ex eu nulla convallis ultricies.",
-    },
-    {
-      title: "Rust",
-      type: "Entry",
-      subtitle: "depuis décembre 2023",
-      innerHtml:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rutrum mollis ultricies. Praesent nec lobortis diam. Quisque egestas leo ac sapien condimentum gravida. Donec ac leo porttitor, pellentesque nulla ac, tincidunt ligula. Nulla non ullamcorper urna, eu tincidunt magna. Praesent aliquam ex eu nulla convallis ultricies.",
-      icon: "memory",
-    },
-    {
-      title: "Production Musicale",
-      type: "Entry",
-      subtitle: "hip/hop, tekno, rock",
-      icon: "graphic_eq",
-      innerHtml:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rutrum mollis ultricies. Praesent nec lobortis diam. Quisque egestas leo ac sapien condimentum gravida. Donec ac leo porttitor, pellentesque nulla ac, tincidunt ligula. Nulla non ullamcorper urna, eu tincidunt magna. Praesent aliquam ex eu nulla convallis ultricies.",
-    },
-    {
-      title: "Me Contacter",
-      type: "Heading",
-      innerHtml: "Me Contacter",
-      linkTo: "/contact-me"
-    },
-  ],
-};
 
 const content = {
   aboutMe,
   academics,
   experiences,
   skills: [],
-  goals,
+  whatcanido: [],
 };
 
 export default content;

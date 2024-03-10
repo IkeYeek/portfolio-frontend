@@ -16,6 +16,7 @@ import App from "./App.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 import content from "./components/pages/pagecontent.ts";
 import FakeSkills from "./components/pages/Skills.vue";
+import WhatCanIDoForYou from "./components/pages/WhatCanIDoForYou.vue";
 const TimeLine = () => import("./components/TimeLine.vue");
 const Contact = () => import("./components/pages/Contact.vue");
 const routes = [
@@ -45,10 +46,10 @@ const routes = [
     },
   },
   {
-    path: "/my-goals",
-    component: TimeLine,
+    path: "/what-can-i-do",
+    component: WhatCanIDoForYou,
     props: {
-      definition: content.goals,
+      definition: content.whatcanido,
     },
   },
   {

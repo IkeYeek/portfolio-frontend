@@ -22,7 +22,7 @@ const mapping = [
   "/academics",
   "/my-experiences",
   "/my-skills",
-  "/my-goals",
+  "/what-can-i-do",
   "/contact-me",
 ];
 
@@ -91,6 +91,7 @@ body {
   width: 100%;
   height: 100%;
   background-image: url("https://blog.ike.icu/content/images/size/w1920/2024/02/jb5rpeIA_4x.jpg");
+  background-size: cover;
 }
 
 #content {

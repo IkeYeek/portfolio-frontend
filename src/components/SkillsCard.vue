@@ -3,13 +3,14 @@ import { onMounted, ref } from "vue";
 import { QCard } from "quasar";
 const hoverElem = ref<QCard | null>(null);
 const divElem = ref<HTMLElement | null>(null);
+const dummyDiv = ref<HTMLDivElement | null>(null);
 
 const props = defineProps<{
   title: string;
   imgSrc: string;
   imgAlt: string;
   description: string;
-  rating: number;
+  rating?: number;
 }>();
 
 const setZIndex = (e: HTMLElement, v: number) =>
@@ -20,13 +21,17 @@ const hoverOn = () => {
   if (hoverElem.value === null) return;
   const t = hoverElem.value.$el as HTMLDivElement;
   const savePos = t.getBoundingClientRect();
+  t.style.zIndex = "999";
   if (window.innerHeight > 800 && window.innerWidth > 1450) {
+    dummyDiv.value!.style.height = "500px";
     t.style.position = "absolute";
     t.style.left = savePos.left.toString();
     t.style.top = (savePos.top - delta).toString();
   }
   setZIndex(t, 1);
 };
+
+const descriptionOpened = ref(false);
 
 const hoverOff = () => {
   if (hoverElem.value === null) return;
@@ -35,6 +40,7 @@ const hoverOff = () => {
   setTimeout(() => {
     setZIndex(t, 0);
     t.style.position = "";
+    dummyDiv.value!.style.height = "0";
   }, 125);
 };
 
@@ -52,11 +58,13 @@ onMounted(() => {
 
 <template>
   <div id="skill-card-container" ref="divElem">
+    <div id="dummyDiv" ref="dumyDiv"></div>
     <q-card
       class="skill-card"
       :onmouseenter="hoverOn"
       :onmouseleave="hoverOff"
       ref="hoverElem"
+      @click="descriptionOpened = true"
     >
       <q-img
         :src="props.imgSrc"
@@ -73,36 +81,43 @@ onMounted(() => {
               readonly
               icon="school"
               color="secondary"
-              :max="5"
+              :max="4"
+              v-if="props.rating"
               ><template v-slot:tip-1>
-                <q-tooltip>Connaissances de surface</q-tooltip>
+                <q-tooltip>Connaissances de surface, à approfondir.</q-tooltip>
               </template>
               <template v-slot:tip-2>
-                <q-tooltip>Déjà expérimenté, pour tester</q-tooltip>
+                <q-tooltip>Déjà utilise sur un / des petits projets.</q-tooltip>
               </template>
               <template v-slot:tip-3>
                 <q-tooltip
-                  >Déjà expérimenté, sur un projet</q-tooltip
+                  >Utilisé de nombreuses fois, plutôt à l'aise.</q-tooltip
                 > </template
               ><template v-slot:tip-4>
                 <q-tooltip
-                  >Déjà utilisé, sur plusieurs projets</q-tooltip
-                > </template
-              ><template v-slot:tip-5>
-                <q-tooltip
-                  >Expérimenté sur de nombreux projets, considéré comme
-                  maîtrisé</q-tooltip
+                  >Parfaitement à l'aise.</q-tooltip
                 > </template
               ></q-rating
             ></span
           >
         </div>
       </q-img>
-      <q-card-section>
-        {{ props.description
-        }}
-      </q-card-section>
     </q-card>
+    <q-dialog v-model="descriptionOpened">
+      <q-card dark>
+        <q-card-section>
+          <div class="text-h6">{{ props.title }}</div>
+        </q-card-section>
+
+        <q-card-section class="q-pt-none">
+{{ props.description }}
+        </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn flat label="Fermer" color="primary" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </div>
 </template>
 
@@ -116,13 +131,14 @@ onMounted(() => {
   overflow: visible;
 }
 .skill-card {
+  overflow: hidden;
   background-color: #2d1b3f;
   width: 250px;
-  transition: scale 250ms ease-in-out;
+  transition: all 300ms ease-in-out;
 }
 .skill-card:hover {
   cursor: pointer;
   scale: 1.5;
-  transition: scale 250ms ease-in-out;
+  transition: all 300ms ease-in-out;
 }
 </style>
