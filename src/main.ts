@@ -17,12 +17,13 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import content from "./components/pages/pagecontent.ts";
 import FakeSkills from "./components/pages/Skills.vue";
 import WhatCanIDoForYou from "./components/pages/WhatCanIDoForYou.vue";
+import AboutMe from "./components/pages/AboutMe.vue";
 const TimeLine = () => import("./components/TimeLine.vue");
 const Contact = () => import("./components/pages/Contact.vue");
 const routes = [
   {
     path: "/",
-    component: TimeLine,
+    component: AboutMe,
     props: {
       definition: content.aboutMe,
     },

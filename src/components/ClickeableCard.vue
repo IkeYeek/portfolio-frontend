@@ -9,8 +9,9 @@ const props = defineProps<{
   title: string;
   imgSrc: string;
   imgAlt: string;
-  description: string;
+  description?: string;
   rating?: number;
+  blockModal?: boolean
 }>();
 
 const setZIndex = (e: HTMLElement, v: number) =>
@@ -23,7 +24,9 @@ const hoverOn = () => {
   const savePos = t.getBoundingClientRect();
   t.style.zIndex = "999";
   if (window.innerHeight > 800 && window.innerWidth > 1450) {
-    dummyDiv.value!.style.height = "500px";
+    if (dummyDiv.value !== null) {
+      dummyDiv.value!.style.height = "500px";
+    }
     t.style.position = "absolute";
     t.style.left = savePos.left.toString();
     t.style.top = (savePos.top - delta).toString();
@@ -40,7 +43,9 @@ const hoverOff = () => {
   setTimeout(() => {
     setZIndex(t, 0);
     t.style.position = "";
-    dummyDiv.value!.style.height = "0";
+    if (dummyDiv.value !== null) {
+      dummyDiv.value.style.height = "0";
+    }
   }, 125);
 };
 
@@ -64,7 +69,7 @@ onMounted(() => {
       :onmouseenter="hoverOn"
       :onmouseleave="hoverOff"
       ref="hoverElem"
-      @click="descriptionOpened = true"
+      @click="!props.blockModal && (descriptionOpened = true)"
     >
       <q-img
         :src="props.imgSrc"

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SkillsCard from "../SkillsCard.vue";
+import SkillsCard from "../ClickeableCard.vue";
 import { onMounted, onUnmounted, ref } from "vue";
 import WebLogo from "../../assets/img/web-logo.png";
 import ReactLogo from "../../assets/img/react-logo.png";

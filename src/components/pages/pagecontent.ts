@@ -13,7 +13,7 @@ const aboutMe = {
       icon: "account_circle",
       type: "Entry",
       innerHtml:
-        "Je suis né à Tours, dans le centre de la France mais j'ai grandit dans la campagne périgourdine avant de me rendre à Bordeaux pour mes études supérieures.",
+        "Je suis né à Tours, dans le centre de la France mais j'ai grandit dans la campagne périgourdine avant de me rendre à Bordeaux pour mes études supérieures. Je suis développeur freelance, mes services sont détaillés plus loins dans mon site. Je suis également passionné de musique. Je tiens un également un blog ayant pour sujet principale mes deux passions !",
     },
     {
       title: "Informatique & Programmation",
@@ -43,12 +43,12 @@ const aboutMe = {
         "Je place l'éthique au centre de mon activité. Je choisis avec sérieux les personnes avec qui je travaille afin de m'assurer qu'ils n'outrepassent pas mes valeurs morales dans l'objectif de pouvoir toujours donner le meilleurs de moi-même.",
       type: "Entry",
     },
-    {
+    /*{
       title: "Mon Parcours",
       type: "Heading",
       innerHtml: "Mon Parcours",
       linkTo: "/academics",
-    },
+    },*/
   ],
 };
 
