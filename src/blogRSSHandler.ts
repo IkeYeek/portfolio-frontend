@@ -44,7 +44,9 @@ const extract_rss_img = (rawContent: string): { link: string, alt: string } | un
 }
 
 const handleBlogRSS = async (): Promise<RSSChannel> => {
-    const feed = await fetch("https://blog.ike.icu/rss");
+    const feed = await fetch("https://blog.ike.icu/rss", {
+        mode: "cors"
+    });
     const rawFeed = await feed.text();
     const parser = new XMLParser();
     const jObj = parser.parse(rawFeed).rss as RSS;

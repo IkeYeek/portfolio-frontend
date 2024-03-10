@@ -41,7 +41,6 @@ onMounted(async () => {
 
 <template>
   <div>
-    <TimeLine :definition="props.definition"/>
     <h4>Mes derniers articles de blog:</h4>
     <div id="skill-cards" ref="skillCards">
       <SkillsCard
@@ -53,16 +52,27 @@ onMounted(async () => {
           :block-modal="true"
           @click="openBlogPost(card)"
       />
-      <div class="isLinkTo" style="display: block; width: 100%">
-        <h3>
-          <div @click="emit('navigateTo', '/contact-me')">Me Contacter</div>
-        </h3>
-      </div>
+    </div>
+    <div id="content">
+      <TimeLine :definition="props.definition"/>
+    </div>
+    <div class="isLinkTo" style="display: block; width: 100%">
+      <h3>
+        <div @click="emit('navigateTo', '/academics')">Mon Parcours</div>
+      </h3>
+    </div>
+    <div class="isLinkTo" style="display: block; width: 100%">
+      <h3>
+        <div @click="emit('navigateTo', '/contact-me')">Me Contacter</div>
+      </h3>
     </div>
   </div>
 </template>
 
 <style scoped>
+#content {
+  margin-top: 50px;
+}
 h4 {
   text-align: center;
 }
